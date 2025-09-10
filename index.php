@@ -4,7 +4,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Curso de Design de Sobrancelhas</title>
-  <!-- Bootstrap 5 -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body style="background-color: #f8f9fa;">
@@ -16,7 +15,6 @@
     </div>
   </nav>
 
-  <!-- Hero / Apresentação -->
   <section class="py-5 text-center text-white" style="background-color: #B19B73;">
     <div class="container">
       <h1 class="display-4 fw-bold">Curso de Design de Sobrancelhas</h1>
@@ -27,7 +25,6 @@
     </div>
   </section>
 
-  <!-- Sobre o curso -->
   <section class="py-5">
     <div class="container">
       <h2 class="fw-bold text-center mb-5">O que você vai aprender</h2>
@@ -54,12 +51,10 @@
     </div>
   </section>
 
-  <!-- Rodapé -->
   <footer class="py-4 text-center text-white" style="background-color: #B19B73;">
     <p class="mb-0">© 2025 Studio Premium - Todos os direitos reservados</p>
   </footer>
 
-  <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

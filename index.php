@@ -19,7 +19,7 @@
   <section class="py-5 text-center text-white hero">
     <div class="container">
       <h1 class="display-4 fw-bold">Curso de Design de Sobrancelhas</h1>
-      <p class="lead mt-3">Um curso exclusivo para quem busca qualidade, técnica e sofisticação na área da beleza.</p>
+      <p class="lead mt-3"><b>Um curso exclusivo para quem busca qualidade, técnica e sofisticação na área da beleza.<b></p>
       
       <button class="btn btn-light btn-lg mt-3">Inscreva-se Agora</button>
     </div>

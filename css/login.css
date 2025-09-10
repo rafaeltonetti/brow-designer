@@ -1,0 +1,135 @@
+body {
+    background-color: #2c2929;
+    color: #f0f0f0;
+    font-family: 'Montserrat', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.login-container {
+    background-color: #1e1e1e;
+    padding: 60px 40px;
+    border-radius: 10px;
+    width: 350px;
+    text-align: center;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: 700;
+    color: #d4af37; /* Cor dourada */
+    letter-spacing: 2px;
+    margin-bottom: 40px;
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.input-group {
+    width: 100%;
+    margin-bottom: 25px;
+    text-align: left;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 14px;
+    font-weight: 400;
+    color: #aaa;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 15px;
+    background-color: #383838;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 16px;
+    box-sizing: border-box;
+    transition: background-color 0.3s;
+}
+
+.input-group input:focus {
+    outline: none;
+    background-color: #444;
+}
+
+.remember-me {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 30px;
+}
+
+.remember-me input[type="checkbox"] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #aaa;
+    border-radius: 3px;
+    background-color: #2c2929;
+    cursor: pointer;
+    position: relative;
+}
+
+.remember-me input[type="checkbox"]:checked {
+    background-color: #d4af37;
+    border-color: #d4af37;
+}
+
+.remember-me input[type="checkbox"]:checked::before {
+    content: '✔';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #1e1e1e;
+    font-size: 14px;
+}
+
+.remember-me label {
+    font-size: 14px;
+    color: #aaa;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+.btn-login {
+    width: 100%;
+    padding: 15px;
+    background-color: #d4af37;
+    color: #1e1e1e;
+    font-size: 16px;
+    font-weight: 700;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn-login:hover {
+    background-color: #c7a435;
+}
+
+.forgot-password {
+    margin-top: 20px;
+    font-size: 14px;
+    color: #aaa;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.forgot-password:hover {
+    color: #d4af37;
+}

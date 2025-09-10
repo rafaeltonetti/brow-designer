@@ -5,17 +5,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Curso de Design de Sobrancelhas</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/home.css">
 </head>
-<body style="background-color: #f8f9fa;">
+<body>
 
-  <nav class="navbar navbar-dark" style="background-color: #8a795a;">
+  <nav class="navbar navbar-dark pb-3 pt-3" style="background-color: #8a795a;">
     <div class="container-fluid">
       <a class="navbar-brand fw-bold" href="#">Brow Design</a>
       <button class="btn btn-light">Entrar</button>
     </div>
   </nav>
 
-  <section class="py-5 text-center text-white" style="background-color: #B19B73;">
+  <section class="py-5 text-center text-white hero">
     <div class="container">
       <h1 class="display-4 fw-bold">Curso de Design de Sobrancelhas</h1>
       <p class="lead mt-3">Um curso exclusivo para quem busca qualidade, técnica e sofisticação na área da beleza.</p>
@@ -51,7 +52,7 @@
   </section>
 
   <footer class="py-4 text-center text-white" style="background-color: #B19B73;">
-    <p class="mb-0">© 2025 Studio Premium - Todos os direitos reservados</p>
+    <p class="mb-0">© 2025 Brow Design - Todos os direitos reservados</p>
   </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>

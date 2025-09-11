@@ -1,0 +1,171 @@
+body {
+    background-color: #2c2929;
+    color: #f0f0f0;
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* --- Cabeçalho e Link de Voltar --- */
+.top-header {
+    background-color: #1e1e1e;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 50px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.logo {
+    font-size: 18px;
+    font-weight: 700;
+    color: #d4af37;
+    letter-spacing: 1px;
+}
+
+.back-link {
+    color: #aaa;
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.3s;
+}
+
+.back-link:hover {
+    color: #d4af37;
+}
+
+/* --- Conteúdo Principal --- */
+.container {
+    padding: 40px 50px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.page-title {
+    font-size: 28px;
+    font-weight: 700;
+    color: #f0f0f0;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.course-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* --- Cards de Cursos --- */
+.course-card {
+    background-color: #1e1e1e;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.course-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+.course-info {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.course-cover {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.info-text h3 {
+    margin: 0 0 5px 0;
+    font-size: 18px;
+    font-weight: 700;
+    color: #f0f0f0;
+}
+
+.info-text p {
+    margin: 0;
+    font-size: 14px;
+    color: #aaa;
+}
+
+.course-actions {
+    display: flex;
+    gap: 15px;
+}
+
+.btn-action {
+    background-color: #d4af37;
+    color: #1e1e1e;
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.btn-action:hover {
+    background-color: #c7a435;
+}
+
+.btn-secondary {
+    background-color: #383838;
+    color: #d4af37;
+}
+
+.btn-secondary:hover {
+    background-color: #444;
+}
+
+/* --- Botão para Adicionar Novo Curso --- */
+.add-course-btn-container {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.btn-add-new-course {
+    display: inline-block;
+    background-color: #1e1e1e;
+    border: 2px solid #d4af37;
+    color: #d4af37;
+    padding: 15px 30px;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.btn-add-new-course:hover {
+    background-color: #d4af37;
+    color: #1e1e1e;
+}
+
+/* --- Responsividade --- */
+@media (max-width: 768px) {
+    .course-card {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+    .course-actions {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .btn-action {
+        flex: 1;
+        text-align: center;
+    }
+}

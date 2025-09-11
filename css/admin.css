@@ -1,0 +1,85 @@
+body {
+    background-color: #2c2929;
+    color: #f0f0f0;
+    font-family: 'Montserrat', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.admin-container {
+    background-color: #1e1e1e;
+    padding: 60px 40px;
+    border-radius: 10px;
+    width: 450px;
+    text-align: center;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: 700;
+    color: #d4af37;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+}
+
+.welcome-text {
+    font-size: 28px;
+    font-weight: 700;
+    color: #f0f0f0;
+    margin-bottom: 10px;
+}
+
+.instruction-text {
+    font-size: 16px;
+    color: #aaa;
+    margin-bottom: 40px;
+    line-height: 1.5;
+}
+
+.admin-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.btn-admin {
+    width: 100%;
+    padding: 18px;
+    background-color: #d4af37;
+    color: #1e1e1e;
+    font-size: 16px;
+    font-weight: 700;
+    text-decoration: none;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    box-sizing: border-box;
+}
+
+.btn-admin:hover {
+    background-color: #c7a435;
+    transform: translateY(-2px);
+}
+
+.btn-admin:active {
+    transform: translateY(0);
+}
+
+/* Responsividade básica para telas menores */
+@media (max-width: 500px) {
+    .admin-container {
+        width: 90%;
+        padding: 40px 20px;
+    }
+
+    .welcome-text {
+        font-size: 24px;
+    }
+}

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 11/09/2025 às 14:44
+-- Tempo de geração: 11/09/2025 às 19:41
 -- Versão do servidor: 10.4.32-MariaDB
 -- Versão do PHP: 8.2.12
 
@@ -41,9 +41,7 @@ CREATE TABLE `aulas` (
 
 INSERT INTO `aulas` (`id`, `titulo`, `descricao`, `video_url`, `curso_id`) VALUES
 (1, 'Introdução', 'Aula de introdução', 'https://www.youtube.com/watch?v=5-sO-oUt7zM', 1),
-(2, 'Introdução ao python', 'primeira aula do curso', 'https://www.youtube.com/watch?v=Mp0vhMDI7fA&list=PLvE-ZAFRgX8hnECDn1v9HNTI71veL3oW0&index=3', 2),
-(3, 'aula 2', 'aula 2', 'https://www.youtube.com/watch?v=VuKvR1J2LQE', 2),
-(4, 'testesytauigd', 'afawfwfafaw', 'https://www.youtube.com/watch?v=zRSJCjsFI3s', 3);
+(2, 'Introdução ao python', 'primeira aula do curso', 'https://www.youtube.com/watch?v=Mp0vhMDI7fA&list=PLvE-ZAFRgX8hnECDn1v9HNTI71veL3oW0&index=3', 2);
 
 -- --------------------------------------------------------
 
@@ -78,8 +76,7 @@ CREATE TABLE `cursos` (
 
 INSERT INTO `cursos` (`id`, `nome`, `descricao`, `capa`) VALUES
 (1, 'teste', 'teste', 'uploads/capas/68c2233621635_urus.jpeg'),
-(2, 'Curso de python', 'Curso de formação para estudantes que querem aprender python!', 'uploads/capas/68c224ef24bec_8C18F411-E5B4-4913-9F53-23847A65094F.png'),
-(3, 'teste aolfbkiabfa', 'afkiagfiaga', 'uploads/capas/68c22cd5c1d29_{A456EC26-8008-422A-A305-7DCB8EA96953}.png');
+(2, 'Curso de python', 'Curso de formação para estudantes que querem aprender python!', 'uploads/capas/68c224ef24bec_8C18F411-E5B4-4913-9F53-23847A65094F.png');
 
 -- --------------------------------------------------------
 
@@ -109,16 +106,17 @@ CREATE TABLE `usuarios` (
   `cpf` varchar(14) NOT NULL,
   `senha` varchar(255) NOT NULL,
   `is_admin` tinyint(1) DEFAULT 0,
-  `data_cadastro` timestamp NOT NULL DEFAULT current_timestamp()
+  `data_cadastro` timestamp NOT NULL DEFAULT current_timestamp(),
+  `foto` varchar(255) DEFAULT 'img/perfil.png'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Despejando dados para a tabela `usuarios`
 --
 
-INSERT INTO `usuarios` (`id`, `nome`, `email`, `telefone`, `cpf`, `senha`, `is_admin`, `data_cadastro`) VALUES
-(1, 'Jorge Augusto Possani Pontes', 'jorgeappontes13@gmail.com', '11996563500', '411.115.848-00', '$2y$10$oBAnIuN95Lb6VFR0hT69JO0Nmx07FQ9vDu.7hlrSVr9.XCCDCgddy', 0, '2025-09-11 00:36:14'),
-(2, 'Rafael Tonetti Cardoso', 'rafaeltonetti.cardoso@gmail.com', '11997714455', '47348644899', '$2y$10$NiLev9gljGav/YOL5qCQVe2I/9aygk3tg0.dB4sOpq07.dHeM2I5S', 1, '2025-09-11 00:44:24');
+INSERT INTO `usuarios` (`id`, `nome`, `email`, `telefone`, `cpf`, `senha`, `is_admin`, `data_cadastro`, `foto`) VALUES
+(1, 'Jorge Augusto Possani Pontes', 'jorgeappontes13@gmail.com', '11996563500', '411.115.848-00', '$2y$10$oBAnIuN95Lb6VFR0hT69JO0Nmx07FQ9vDu.7hlrSVr9.XCCDCgddy', 0, '2025-09-11 00:36:14', 'img/perfil.png'),
+(2, 'Rafael Tonetti Cardoso', 'rafaeltonetti.cardoso@gmail.com', '11997714455', '47348644899', '$2y$10$l2xuSAfb4u/HJpof4xndxuCmSQ/36RXt50lnZ6U0YIARozPO0u.Um', 1, '2025-09-11 00:44:24', 'uploads/perfis/68c2f3decde99-IMG_4988.jpg');
 
 --
 -- Índices para tabelas despejadas
@@ -170,7 +168,7 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de tabela `aulas`
 --
 ALTER TABLE `aulas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT de tabela `certificados`

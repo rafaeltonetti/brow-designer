@@ -5,74 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Brow Designer - Plataforma de Cursos</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-  <style>
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      background-color: white;
-      color: black;
-    }
-    .navbar {
-      background-color: #a8796a;
-    }
-    .navbar-brand {
-      font-weight: bold;
-      color: white !important;
-    }
-    .hero {
-      background: url('../brow-designer/img/herooo (1).jpg');
-      background-repeat: no-repeat;
-      background-size: 100%;
-      color: white;
-      text-align: center;
-      padding: 120px 20px;
-    }
-    .hero h1 {
-      font-size: 3rem;
-      font-weight: bold;
-    }
-    .section-title {
-      margin: 60px 0 30px;
-      text-align: center;
-      color: #a8796a;
-    }
-    .card {
-      background-color: #cccccc;
-      transition: transform 0.2s;
-      color: white;
-    }
-    .card:hover {
-      transform: scale(1.03);
-    }
-    .card img {
-      height: 250px;
-      object-fit: cover;
-      border-bottom: 2px solid #a8796a;
-    }
-    .card-title {
-      color: #ffffff;
-    }
-    .about {
-      background-color: #1a1a1a;
-      padding: 60px 20px;
-      border-top: 2px solid #2a2a2a;
-      color: white;
-    }
-    footer {
-      background: #0d0d0d;
-      color: #aaa;
-      text-align: center;
-      padding: 20px 10px;
-    }
-    .btn-gold {
-      background-color: white;
-      color: black;
-      font-weight: bold;
-    }
-    .btn-gold:hover {
-      background-color: #cccccc;
-      color: black;
-    }
-  </style>
+  <link rel="stylesheet" href="./css/home.css">
 </head>
 <body>
 

@@ -1,0 +1,124 @@
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #121212;
+    color: #e0e0e0;
+    margin: 0;
+    padding: 0;
+}
+
+.top-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 50px;
+    background-color: #1c1c1c;
+    border-bottom: 2px solid #333;
+}
+
+.logo {
+    font-weight: 700;
+    font-size: 24px;
+    color: #ffc107;
+}
+
+.user-nav a {
+    color: #e0e0e0;
+    text-decoration: none;
+    margin-left: 20px;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.user-nav a:hover {
+    color: #ffc107;
+}
+
+.course-container {
+    display: flex;
+    gap: 30px;
+    max-width: 1400px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+.main-content {
+    flex: 3;
+}
+
+.course-title {
+    font-size: 2.5em;
+    color: #ffc107;
+    margin-bottom: 10px;
+}
+
+.course-description {
+    font-size: 1em;
+    color: #b0b0b0;
+    margin-bottom: 30px;
+    line-height: 1.6;
+}
+
+.video-player {
+    background-color: #000;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+.responsive-video {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.sidebar-aulas {
+    flex: 1;
+    background-color: #1c1c1c;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    overflow-y: auto;
+    height: fit-content;
+    max-height: 80vh; /* Limita a altura para scroll */
+}
+
+.sidebar-title {
+    font-size: 1.5em;
+    color: #ffc107;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.lista-aulas {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.aula-item {
+    background-color: #2a2a2a;
+    border-radius: 5px;
+    padding: 15px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+    display: flex;
+    align-items: center;
+}
+
+.aula-item:hover {
+    background-color: #333;
+    transform: translateX(5px);
+}
+
+.aula-titulo {
+    font-weight: 500;
+}
+
+.no-video {
+    text-align: center;
+    padding: 50px;
+    font-size: 1.2em;
+    color: #b0b0b0;
+}

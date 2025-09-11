@@ -71,7 +71,7 @@ $result = $stmt->get_result();
                         <div class="course-actions">
                             <a href="gerenciar-aulas.php?curso_id=<?php echo $curso['id']; ?>" class="btn-action">Gerenciar Aulas</a>
                             <a href="editar-curso.php?id=<?php echo $curso['id']; ?>" class="btn-action">Editar</a>
-                            <a href="gerenciar-cursos.php?delete_id=<?php echo $curso['id']; ?>" class="btn-action btn-danger" onclick="return confirm('Tem certeza que deseja excluir este curso?');">Excluir</a>
+                            <a href="GerenciarCursos.php?delete_id=<?php echo $curso['id']; ?>" class="btn-action btn-danger" onclick="return confirm('Tem certeza que deseja excluir este curso?');">Excluir</a>
                         </div>
                     </div>
                 <?php endwhile; ?>

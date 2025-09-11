@@ -1,0 +1,191 @@
+body {
+    background-color: #2c2929;
+    color: #f0f0f0;
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* --- Cabeçalho e Link de Voltar --- */
+.top-header {
+    background-color: #1e1e1e;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 50px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.logo {
+    font-size: 18px;
+    font-weight: 700;
+    color: #d4af37;
+    letter-spacing: 1px;
+}
+
+.back-link {
+    color: #aaa;
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.3s;
+}
+
+.back-link:hover {
+    color: #d4af37;
+}
+
+/* --- Conteúdo Principal --- */
+.container {
+    padding: 40px 50px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.page-title {
+    font-size: 28px;
+    font-weight: 700;
+    color: #f0f0f0;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.section-heading {
+    font-size: 20px;
+    color: #d4af37;
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+/* --- Card de Dados do Aluno --- */
+.aluno-details-card {
+    background-color: #1e1e1e;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    margin-bottom: 40px;
+}
+
+.info-group p {
+    margin: 10px 0;
+    font-size: 16px;
+    color: #ccc;
+}
+
+.info-group strong {
+    color: #f0f0f0;
+}
+
+.btn-edit {
+    display: inline-block;
+    background-color: #383838;
+    color: #d4af37;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 700;
+    margin-top: 20px;
+    transition: background-color 0.3s;
+}
+
+.btn-edit:hover {
+    background-color: #444;
+}
+
+/* --- Cards de Cursos do Aluno --- */
+.courses-list-card {
+    background-color: #1e1e1e;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.course-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #383838;
+    padding: 15px 0;
+}
+
+.course-item:last-child {
+    border-bottom: none;
+}
+
+.course-info {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.course-cover {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.course-text h3 {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 700;
+    color: #f0f0f0;
+}
+
+.status {
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+.liberado {
+    color: #70d65a; /* Verde */
+}
+
+.nao-liberado {
+    color: #d1b46a; /* Dourado */
+}
+
+.btn-cert {
+    background-color: #d4af37;
+    color: #1e1e1e;
+    padding: 10px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 700;
+    transition: background-color 0.3s;
+    white-space: nowrap;
+}
+
+.btn-cert:hover:not(.disabled) {
+    background-color: #c7a435;
+}
+
+.btn-cert.disabled {
+    background-color: #555;
+    color: #999;
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+/* --- Responsividade --- */
+@media (max-width: 600px) {
+    .container {
+        padding: 20px;
+    }
+
+    .aluno-details-card, .courses-list-card {
+        padding: 20px;
+    }
+
+    .course-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+        text-align: left;
+    }
+
+    .btn-cert {
+        width: 100%;
+        text-align: center;
+    }
+}

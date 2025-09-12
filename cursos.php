@@ -34,6 +34,7 @@ $primeiro_nome = explode(" ", $nome_completo)[0];
 
 <div class="user-info">
     <a href="userpage.php">Olá, <?php echo htmlspecialchars($primeiro_nome); ?></a>
+    <a href="logout.php">Sair</a>
 </div>
     </header>
 

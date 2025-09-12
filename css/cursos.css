@@ -27,6 +27,7 @@ body {
 }
 
 .top-header .user-info a {
+    margin-right: 15px;
     color: #333;
     text-decoration: none;
     font-weight: 400;

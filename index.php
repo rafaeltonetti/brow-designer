@@ -20,7 +20,7 @@
         <ul class="navbar-nav ms-auto">
           <li class="nav-item"><a class="nav-link" href="#cursos">Cursos</a></li>
           <li class="nav-item"><a class="nav-link" href="#sobre">Quem sou eu</a></li>
-          <li class="nav-item"><a class="btn btn-gold ms-2" href="#inscricao">Inscreva-se</a></li>
+          <li class="nav-item"><a class="btn btn-gold ms-2" href="cadastro.php">Inscreva-se</a></li>
         </ul>
       </div>
     </div>

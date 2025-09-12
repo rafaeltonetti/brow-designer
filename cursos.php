@@ -26,9 +26,15 @@ $result = $stmt->get_result();
 <body>
     <header class="top-header">
         <div class="logo">BROW CURSOS</div>
-        <div class="user-info">
-            <a href="userpage.php">Olá, <?php echo htmlspecialchars($_SESSION['nome_usuario']); ?></a>
-        </div>
+        <?php
+// Extrai o primeiro nome do nome completo
+$nome_completo = $_SESSION['nome_usuario'];
+$primeiro_nome = explode(" ", $nome_completo)[0];
+?>
+
+<div class="user-info">
+    <a href="userpage.php">Olá, <?php echo htmlspecialchars($primeiro_nome); ?></a>
+</div>
     </header>
 
     <div class="container">

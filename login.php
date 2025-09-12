@@ -33,7 +33,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 header("Location: admin.php");
             } else {
                 // Se for um usuário normal, redireciona para a página home
-                header("Location: index.php");
+                header("Location: cursos.php");
             }
             exit();
         } else {

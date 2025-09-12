@@ -49,7 +49,7 @@ if ($_SESSION['is_admin'] != 1) {
                 Gerenciar Cursos
             </a>
 
-            <a href="GerenciarAlunos.php" class="btn-admin">
+            <a href="gerenciar_alunos.php" class="btn-admin">
                 Gerenciar Alunos
             </a>
 

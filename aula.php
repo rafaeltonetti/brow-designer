@@ -8,27 +8,27 @@ if (!isset($_SESSION['id_usuario'])) {
     exit();
 }
 
-if (!isset($_GET['curso_id'])) {
+// Verifica se o ID da aula e do curso foram passados na URL
+if (!isset($_GET['aula_id']) || !isset($_GET['curso_id'])) {
     header("Location: cursos.php");
     exit();
 }
 
+$aula_id = $_GET['aula_id'];
 $curso_id = $_GET['curso_id'];
 $id_usuario = $_SESSION['id_usuario'];
 
-// Busca a primeira aula do curso
-$stmt_primeira_aula = $conn->prepare("SELECT id, titulo, descricao, video_url FROM aulas WHERE curso_id = ? ORDER BY id ASC LIMIT 1");
-$stmt_primeira_aula->bind_param("i", $curso_id);
-$stmt_primeira_aula->execute();
-$result_primeira_aula = $stmt_primeira_aula->get_result();
-$primeira_aula = $result_primeira_aula->fetch_assoc();
+// Busca as informações da aula atual
+$stmt_aula = $conn->prepare("SELECT titulo, descricao, video_url FROM aulas WHERE id = ?");
+$stmt_aula->bind_param("i", $aula_id);
+$stmt_aula->execute();
+$result_aula = $stmt_aula->get_result();
+$aula = $result_aula->fetch_assoc();
 
-if (!$primeira_aula) {
-    echo "Nenhuma aula encontrada para este curso!";
+if (!$aula) {
+    echo "Aula não encontrada!";
     exit();
 }
-
-$aula_atual_id = $primeira_aula['id'];
 
 // Busca todas as aulas do curso para o menu lateral
 $stmt_aulas = $conn->prepare("SELECT id, titulo FROM aulas WHERE curso_id = ? ORDER BY id ASC");
@@ -74,7 +74,7 @@ function get_youtube_id($url) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?php echo htmlspecialchars($primeira_aula['titulo']); ?> - Grow Cursos</title>
+    <title><?php echo htmlspecialchars($aula['titulo']); ?> - Grow Cursos</title>
     <link rel="stylesheet" href="css/curso.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
@@ -109,10 +109,10 @@ function get_youtube_id($url) {
 
     <main class="aula-main">
         <section class="video-content">
-            <h1><?php echo htmlspecialchars($primeira_aula['titulo']); ?></h1>
+            <h1><?php echo htmlspecialchars($aula['titulo']); ?></h1>
             
             <div class="video-player">
-                <?php $youtube_id = get_youtube_id($primeira_aula['video_url']); ?>
+                <?php $youtube_id = get_youtube_id($aula['video_url']); ?>
                 <?php if ($youtube_id): ?>
                     <iframe src="https://www.youtube.com/embed/<?php echo htmlspecialchars($youtube_id); ?>" frameborder="0" allowfullscreen></iframe>
                 <?php else: ?>
@@ -122,7 +122,7 @@ function get_youtube_id($url) {
 
             <div class="aula-descricao">
                 <h2>Descrição da Aula</h2>
-                <p><?php echo htmlspecialchars($primeira_aula['descricao']); ?></p>
+                <p><?php echo htmlspecialchars($aula['descricao']); ?></p>
             </div>
         </section>
 
@@ -134,7 +134,7 @@ function get_youtube_id($url) {
                 while ($aula_sidebar = $result_aulas->fetch_assoc()):
                     $aula_concluida = in_array($aula_sidebar['id'], $aulas_concluidas);
                 ?>
-                    <li class="<?php echo ($aula_sidebar['id'] == $aula_atual_id) ? 'active' : ''; ?>">
+                    <li class="<?php echo ($aula_sidebar['id'] == $aula_id) ? 'active' : ''; ?>">
                         <label class="custom-checkbox-container">
                             <input type="checkbox"
                                    class="aula-checkbox"
@@ -179,14 +179,12 @@ function get_youtube_id($url) {
                             console.log('Status da aula atualizado com sucesso!');
                         } else {
                             console.error('Erro ao atualizar status da aula:', data.message);
-                            // Reverte a mudança do checkbox em caso de erro
-                            event.target.checked = !isChecked;
+                            event.target.checked = !isChecked; // Reverte a mudança do checkbox
                         }
                     })
                     .catch(error => {
                         console.error('Erro na requisição:', error);
-                        // Reverte a mudança do checkbox em caso de erro
-                        event.target.checked = !isChecked;
+                        event.target.checked = !isChecked; // Reverte a mudança do checkbox
                     });
                 });
             });
@@ -196,7 +194,7 @@ function get_youtube_id($url) {
 </html>
 
 <?php
-$stmt_primeira_aula->close();
+$stmt_aula->close();
 $stmt_aulas->close();
 $conn->close();
 ?>

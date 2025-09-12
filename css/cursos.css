@@ -1,92 +1,85 @@
-body {
-    font-family: 'Montserrat', sans-serif;
-    background-color: #121212;
-    color: #e0e0e0;
-    margin: 0;
-    padding: 0;
+/* Estilos para o checkbox customizado */
+.custom-checkbox-container {
+    display: flex !important; /* Para alinhar o checkbox, o checkmark e o link */
+    align-items: center !important; /* Centraliza verticalmente */
+    position: relative !important;
+    padding-left: 30px !important; /* Espaço para o checkmark */
+    cursor: pointer !important;
+    user-select: none !important;
+    width: 100% !important; /* Ocupa a largura total do li */
 }
 
-.top-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 50px;
-    background-color: #1c1c1c;
-    border-bottom: 2px solid #333;
+/* Esconde o checkbox padrão */
+.custom-checkbox-container input {
+    position: absolute !important;
+    opacity: 0 !important;
+    cursor: pointer !important;
+    height: 0 !important;
+    width: 0 !important;
 }
 
-.logo {
-    font-weight: 700;
-    font-size: 24px;
-    color: #ffc107;
+/* Cria o checkmark (quadrado visual) */
+.checkmark {
+    position: absolute !important;
+    top: 50% !important;
+    left: 0 !important;
+    transform: translateY(-50%) !important;
+    height: 20px !important;
+    width: 20px !important;
+    background-color: #eee !important;
+    border-radius: 3px !important;
+    border: 1px solid #ccc !important;
+    transition: all 0.2s ease-in-out !important;
 }
 
-.user-info a {
-    color: #e0e0e0;
-    text-decoration: none;
-    font-weight: 500;
-    transition: color 0.3s;
+/* Cor do checkmark quando o checkbox está selecionado */
+.custom-checkbox-container input:checked ~ .checkmark {
+    background-color: #b19b73 !important; /* Cor principal do seu tema */
+    border-color: #b19b73 !important;
 }
 
-.user-info a:hover {
-    color: #ffc107;
+/* Adiciona um icone de check (✓) quando o checkbox está selecionado */
+.checkmark:after {
+    content: "" !important;
+    position: absolute !important;
+    display: none !important;
 }
 
-.container {
-    max-width: 1200px;
-    margin: 20px auto;
-    padding: 20px;
+/* Mostra o icone de check quando o checkbox está selecionado */
+.custom-checkbox-container input:checked ~ .checkmark:after {
+    display: block !important;
 }
 
-.page-title {
-    font-size: 2.5em;
-    font-weight: 700;
-    text-align: center;
-    color: #ffc107;
-    margin-bottom: 40px;
+/* Estilo do icone de check */
+.custom-checkbox-container .checkmark:after {
+    left: 7px !important;
+    top: 3px !important;
+    width: 5px !important;
+    height: 10px !important;
+    border: solid white !important;
+    border-width: 0 3px 3px 0 !important;
+    transform: rotate(45deg) !important;
 }
 
-.course-list {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 30px;
-    justify-content: center;
+/* Estilo para o link dentro do label para que ele não perca o estilo */
+.custom-checkbox-container a {
+    color: #333 !important; /* Mantém a cor do texto */
+    text-decoration: none !important;
+    margin-left: 10px !important; /* Espaçamento entre o checkmark e o texto */
+    flex-grow: 1 !important; /* Para ocupar o espaço restante */
 }
 
-.course-card {
-    background-color: #1c1c1c;
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
-    text-decoration: none;
-    color: #e0e0e0;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+/* Estilo para o item de lista ativo (aula atual) */
+.sidebar-aulas .aulas-list li.active .custom-checkbox-container a {
+    color: #fff !important; /* Cor do texto da aula ativa */
+    font-weight: bold !important;
 }
 
-.course-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6);
+/* Ajusta o padding do li para não conflitar */
+.sidebar-aulas .aulas-list li {
+    padding: 0 !important; /* Remove o padding do li para o label gerenciar */
+    margin-bottom: 0.5rem !important;
+    border-radius: 5px !important;
+    transition: background-color 0.2s !important;
 }
 
-.course-cover {
-    width: 100%;
-    height: 180px;
-    object-fit: cover;
-}
-
-.course-info {
-    padding: 20px;
-}
-
-.course-info h3 {
-    margin: 0 0 10px 0;
-    font-size: 1.2em;
-    font-weight: 700;
-    color: #ffc107;
-}
-
-.course-info p {
-    margin: 0;
-    font-size: 0.9em;
-    line-height: 1.5;
-}

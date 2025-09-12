@@ -1,0 +1,268 @@
+/* Importação da fonte do Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+/* --- Estilos Gerais --- */
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    margin: 0;
+    line-height: 1.6;
+}
+
+/* --- Navbar --- */
+#navbar {
+    background: #fff;
+    color: #333;
+    border-bottom: 2px solid #b19b73;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.navbar .logo {
+    font-weight: 700;
+    color: #b19b73;
+    text-decoration: none;
+    font-size: 1.5rem;
+}
+
+.navbar ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.navbar ul li {
+    margin-left: 1.5rem;
+}
+
+.navbar ul li a {
+    color: #333;
+    text-decoration: none;
+    font-weight: 400;
+    transition: color 0.3s;
+}
+
+.navbar ul li a:hover {
+    color: #b19b73;
+}
+
+/* --- Menu de Usuário --- */
+.user-menu {
+    position: relative;
+    cursor: pointer;
+}
+
+.avatar img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 2px solid #b19b73;
+    cursor: pointer;
+}
+
+.dropdown {
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 50px;
+    background-color: #fff;
+    min-width: 150px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    border-radius: 5px;
+}
+
+.dropdown a {
+    color: #333;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown a:hover {
+    background-color: #ddd;
+}
+
+.dropdown hr {
+    border: none;
+    border-top: 1px solid #eee;
+    margin: 5px 0;
+}
+
+.user-menu:hover .dropdown, .user-menu.active .dropdown {
+    display: block;
+}
+
+/* --- Container Principal da Aula --- */
+.aula-main {
+    display: flex;
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+/* --- Seção de Conteúdo (Vídeo e Descrição) --- */
+.video-content {
+    flex: 3;
+    background: #fff;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.video-player {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+    margin-bottom: 1.5rem;
+}
+
+.video-player iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+}
+
+.aula-descricao h2 {
+    color: #b19b73;
+    border-bottom: 2px solid #b19b73;
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+/* --- Sidebar de Aulas --- */
+.sidebar-aulas {
+    flex: 1;
+    background: #fff;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar-aulas h2 {
+    color: #b19b73;
+    border-bottom: 2px solid #b19b73;
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.aulas-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* Estilos para o container do item da lista */
+.aulas-list li {
+    background-color: #f9f9f9;
+    margin-bottom: 0.5rem;
+    border-radius: 5px;
+    transition: background-color 0.2s;
+    list-style: none;
+    padding: 0;
+}
+
+.aulas-list li.active {
+    background-color: #b19b73;
+    color: #fff;
+}
+
+.aulas-list li:hover {
+    background-color: #e9e9e9;
+}
+
+.aulas-list li.active:hover {
+    background-color: #a08c69; 
+}
+
+/* Estilos para o container do checkbox e texto */
+.custom-checkbox-container {
+    display: flex;
+    align-items: center;
+    padding: 0.75rem; 
+    position: relative;
+    cursor: pointer;
+    user-select: none;
+}
+
+/* Oculta o checkbox nativo */
+.custom-checkbox-container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+/* O quadrado visual do checkbox */
+.checkmark {
+    height: 20px;
+    width: 20px;
+    background-color: #eee;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    transition: all 0.2s ease-in-out;
+    position: relative;
+}
+
+/* Estilo do quadrado quando o input está checado */
+.custom-checkbox-container input:checked ~ .checkmark {
+    background-color: #b19b73;
+    border-color: #b19b73;
+}
+
+/* O ícone de V dentro do quadrado */
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+    left: 5px;
+    top: 1px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    transform: rotate(45deg);
+}
+
+/* Exibe o ícone de V quando o input está checado */
+.custom-checkbox-container input:checked ~ .checkmark:after {
+    display: block;
+}
+
+/* Estilo do link para o nome da aula */
+.custom-checkbox-container a {
+    color: #333;
+    text-decoration: none;
+    flex-grow: 1; 
+    margin-left: 10px; 
+}
+
+/* Cor do texto quando o item da lista está ativo */
+.sidebar-aulas .aulas-list li.active .custom-checkbox-container a {
+    color: #fff;
+    font-weight: bold;
+}
+
+/* --- Footer --- */
+footer {
+    text-align: center;
+    padding: 1rem;
+    background-color: #333;
+    color: #fff;
+    margin-top: 2rem;
+}

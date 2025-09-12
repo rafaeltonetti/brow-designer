@@ -1,6 +1,6 @@
 body {
       font-family: 'Segoe UI', sans-serif;
-      background-color: white;
+      background-color: #ffffff;
       color: black;
     }
     .navbar {
@@ -11,7 +11,7 @@ body {
       color: white !important;
     }
     .hero {
-      background: url('../brow-designer/img/herooo (1).jpg');
+      background: url('../img/herooo\ \(1\).jpg');
       background-repeat: no-repeat;
       background-size: 100%;
       color: white;

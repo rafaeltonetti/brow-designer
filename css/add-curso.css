@@ -1,6 +1,6 @@
 body {
-    background-color: #2c2929;
-    color: #f0f0f0;
+    background-color: #ffffff;
+    color: black;
     font-family: 'Montserrat', sans-serif;
     display: flex;
     justify-content: center;
@@ -23,7 +23,7 @@ body {
 .logo {
     font-size: 24px;
     font-weight: 700;
-    color: #d4af37;
+    color: #a8796a;
     letter-spacing: 2px;
     margin-bottom: 20px;
 }
@@ -31,7 +31,7 @@ body {
 .page-title {
     font-size: 28px;
     font-weight: 700;
-    color: #f0f0f0;
+    color: black;
     margin-bottom: 30px;
 }
 
@@ -94,7 +94,7 @@ body {
 
 .file-upload-group label:hover {
     background-color: #444;
-    border-color: #d4af37;
+    border-color: #bf8a78;
 }
 
 .file-instruction {
@@ -107,7 +107,7 @@ body {
 .btn-next {
     width: 100%;
     padding: 18px;
-    background-color: #d4af37;
+    background-color: #a8796a;
     color: #1e1e1e;
     font-size: 16px;
     font-weight: 700;
@@ -120,7 +120,7 @@ body {
 }
 
 .btn-next:hover {
-    background-color: #c7a435;
+    background-color: #bf8a78;
 }
 
 .back-link {
@@ -132,7 +132,7 @@ body {
 }
 
 .back-link:hover {
-    color: #d4af37;
+    color: #bf8a78;
 }
 
 /* Responsividade básica */

@@ -1,6 +1,9 @@
 body {
-    background-color: #2c2929;
-    color: #f0f0f0;
+    background-image: url(../img/espirais-definitivo.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100%;
+    color: white;
     font-family: 'Montserrat', sans-serif;
     display: flex;
     justify-content: center;
@@ -21,7 +24,7 @@ body {
 .logo {
     font-size: 24px;
     font-weight: 700;
-    color: #d4af37; /* Cor dourada */
+    color: #a8796a; /* Cor dourada */
     letter-spacing: 2px;
     margin-bottom: 40px;
 }
@@ -84,8 +87,8 @@ body {
 }
 
 .remember-me input[type="checkbox"]:checked {
-    background-color: #d4af37;
-    border-color: #d4af37;
+    background-color: #a8796a;
+    border-color: #a8796a;
 }
 
 .remember-me input[type="checkbox"]:checked::before {
@@ -108,7 +111,7 @@ body {
 .btn-login {
     width: 100%;
     padding: 15px;
-    background-color: #d4af37;
+    background-color: #a8796a;
     color: #1e1e1e;
     font-size: 16px;
     font-weight: 700;
@@ -119,7 +122,7 @@ body {
 }
 
 .btn-login:hover {
-    background-color: #c7a435;
+    background-color: #bf8a78;
 }
 
 .forgot-password {
@@ -131,5 +134,5 @@ body {
 }
 
 .forgot-password:hover {
-    color: #d4af37;
+    color: #a8796a;
 }

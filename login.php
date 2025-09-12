@@ -62,7 +62,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <body>
     <div class="login-container">
         <div class="logo">
-            BROW
+            BROW DESIGN
         </div>
         
         <form action="login.php" method="POST" class="login-form">

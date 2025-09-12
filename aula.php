@@ -2,11 +2,13 @@
 session_start();
 include 'conexao.php';
 
+// Redireciona se o usuário não estiver logado
 if (!isset($_SESSION['id_usuario'])) {
     header("Location: login.php");
     exit();
 }
 
+// Verifica se o ID da aula e do curso foram passados na URL
 if (!isset($_GET['aula_id']) || !isset($_GET['curso_id'])) {
     header("Location: cursos.php");
     exit();
@@ -45,7 +47,7 @@ while ($row = $result_concluidas->fetch_assoc()) {
 }
 $stmt_concluidas->close();
 
-// Função para extrair o ID do vídeo do YouTube de uma URL
+// Função para extrair o ID do vídeo do YouTube
 function get_youtube_id($url) {
     $url_parts = parse_url($url);
     if (isset($url_parts['host'])) {
@@ -74,6 +76,8 @@ function get_youtube_id($url) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?php echo htmlspecialchars($aula['titulo']); ?> - Grow Cursos</title>
     <link rel="stylesheet" href="css/curso.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
@@ -131,13 +135,16 @@ function get_youtube_id($url) {
                     $aula_concluida = in_array($aula_sidebar['id'], $aulas_concluidas);
                 ?>
                     <li class="<?php echo ($aula_sidebar['id'] == $aula_id) ? 'active' : ''; ?>">
-                        <input type="checkbox"
-                               class="aula-checkbox"
-                               data-aula-id="<?php echo htmlspecialchars($aula_sidebar['id']); ?>"
-                               <?php echo $aula_concluida ? 'checked' : ''; ?>>
-                        <a href="aula.php?aula_id=<?php echo htmlspecialchars($aula_sidebar['id']); ?>&curso_id=<?php echo htmlspecialchars($curso_id); ?>">
-                            <?php echo htmlspecialchars($aula_sidebar['titulo']); ?>
-                        </a>
+                        <label class="custom-checkbox-container">
+                            <input type="checkbox"
+                                   class="aula-checkbox"
+                                   data-aula-id="<?php echo htmlspecialchars($aula_sidebar['id']); ?>"
+                                   <?php echo $aula_concluida ? 'checked' : ''; ?>>
+                            <span class="checkmark"></span>
+                            <a href="aula.php?aula_id=<?php echo htmlspecialchars($aula_sidebar['id']); ?>&curso_id=<?php echo htmlspecialchars($curso_id); ?>">
+                                <?php echo htmlspecialchars($aula_sidebar['titulo']); ?>
+                            </a>
+                        </label>
                     </li>
                 <?php endwhile; ?>
             </ul>
@@ -164,7 +171,7 @@ function get_youtube_id($url) {
                         headers: {
                             'Content-Type': 'application/x-www-form-urlencoded',
                         },
-                        body: id_aula=${aulaId}&concluido=${isChecked}
+                        body: `id_aula=${aulaId}&concluido=${isChecked}`
                     })
                     .then(response => response.json())
                     .then(data => {

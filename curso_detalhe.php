@@ -2,43 +2,71 @@
 session_start();
 include 'conexao.php';
 
-// Verifica se o usuário está logado
+// Redireciona se o usuário não estiver logado
 if (!isset($_SESSION['id_usuario'])) {
     header("Location: login.php");
     exit();
 }
 
-// Verifica se o ID do curso foi passado na URL
-if (!isset($_GET['curso_id']) || !is_numeric($_GET['curso_id'])) {
+if (!isset($_GET['curso_id'])) {
     header("Location: cursos.php");
     exit();
 }
 
 $curso_id = $_GET['curso_id'];
+$id_usuario = $_SESSION['id_usuario'];
 
-// Lógica para buscar os dados do curso
-$stmt_curso = $conn->prepare("SELECT nome, descricao FROM cursos WHERE id = ?");
-$stmt_curso->bind_param("i", $curso_id);
-$stmt_curso->execute();
-$result_curso = $stmt_curso->get_result();
+// Busca a primeira aula do curso
+$stmt_primeira_aula = $conn->prepare("SELECT id, titulo, descricao, video_url FROM aulas WHERE curso_id = ? ORDER BY id ASC LIMIT 1");
+$stmt_primeira_aula->bind_param("i", $curso_id);
+$stmt_primeira_aula->execute();
+$result_primeira_aula = $stmt_primeira_aula->get_result();
+$primeira_aula = $result_primeira_aula->fetch_assoc();
 
-if ($result_curso->num_rows === 0) {
-    echo "<script>alert('Curso não encontrado.'); window.location.href='cursos.php';</script>";
+if (!$primeira_aula) {
+    echo "Nenhuma aula encontrada para este curso!";
     exit();
 }
 
-$curso = $result_curso->fetch_assoc();
+$aula_atual_id = $primeira_aula['id'];
 
-// Lógica para buscar todas as aulas do curso
-$stmt_aulas = $conn->prepare("SELECT id, titulo, descricao, video_url FROM aulas WHERE curso_id = ? ORDER BY id ASC");
+// Busca todas as aulas do curso para o menu lateral
+$stmt_aulas = $conn->prepare("SELECT id, titulo FROM aulas WHERE curso_id = ? ORDER BY id ASC");
 $stmt_aulas->bind_param("i", $curso_id);
 $stmt_aulas->execute();
 $result_aulas = $stmt_aulas->get_result();
 
-// Busca a primeira aula para exibir no player principal
-$primeira_aula = $result_aulas->fetch_assoc();
-$result_aulas->data_seek(0); // Volta o ponteiro para o início do resultado para o loop
+// Busca as aulas que o usuário já concluiu
+$aulas_concluidas = [];
+$stmt_concluidas = $conn->prepare("SELECT id_aula FROM aulas_concluidas WHERE id_usuario = ?");
+$stmt_concluidas->bind_param("i", $id_usuario);
+$stmt_concluidas->execute();
+$result_concluidas = $stmt_concluidas->get_result();
+while ($row = $result_concluidas->fetch_assoc()) {
+    $aulas_concluidas[] = $row['id_aula'];
+}
+$stmt_concluidas->close();
 
+// Função para extrair o ID do vídeo do YouTube
+function get_youtube_id($url) {
+    $url_parts = parse_url($url);
+    if (isset($url_parts['host'])) {
+        $host = strtolower($url_parts['host']);
+        if ($host == 'www.youtube.com' || $host == 'youtube.com') {
+            if (isset($url_parts['query'])) {
+                parse_str($url_parts['query'], $query_parts);
+                if (isset($query_parts['v'])) {
+                    return $query_parts['v'];
+                }
+            }
+        } elseif ($host == 'youtu.be') {
+            if (isset($url_parts['path'])) {
+                return trim($url_parts['path'], '/');
+            }
+        }
+    }
+    return false;
+}
 ?>
 
 <!DOCTYPE html>
@@ -46,65 +74,129 @@ $result_aulas->data_seek(0); // Volta o ponteiro para o início do resultado par
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?php echo htmlspecialchars($curso['nome']); ?></title>
-    <link rel="stylesheet" href="css/curso_detalhe.css">
+    <title><?php echo htmlspecialchars($primeira_aula['titulo']); ?> - Grow Cursos</title>
+    <link rel="stylesheet" href="css/curso.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header class="top-header">
-        <div class="logo">BROW CURSOS</div>
-        <nav class="user-nav">
-            <a href="cursos.php">Todos os Cursos</a>
-            <a href="userpage.php">Meu Perfil</a>
+
+    <header>
+        <nav id="navbar">
+            <div class="navbar">
+                <a href="index.php" class="logo">BROW CURSOS</a>
+                <ul>
+                    <li><a href="index.php">Home</a></li>
+                    <li><a href="cursos.php">Cursos</a></li>
+                    <li><a href="certificados.php">Certificados</a></li>
+                </ul>
+
+                <div class="user-menu">
+                    <div class="avatar" id="avatar">
+                        <img src="img/perfil.png" alt="Foto de Perfil">
+                    </div>
+                    <div class="dropdown" id="menu">
+                        <a href="userpage.php">Perfil</a>
+                        <a href="certificados.php">Certificados</a>
+                        <a href="ajuda.php">Ajuda</a>
+                        <hr>
+                        <a href="logout.php">Sair</a>
+                    </div>
+                </div>
+            </div>
         </nav>
     </header>
 
-    <div class="course-container">
-        <div class="main-content">
-            <h1 class="course-title"><?php echo htmlspecialchars($curso['nome']); ?></h1>
-            <p class="course-description"><?php echo htmlspecialchars($curso['descricao']); ?></p>
-
+    <main class="aula-main">
+        <section class="video-content">
+            <h1><?php echo htmlspecialchars($primeira_aula['titulo']); ?></h1>
+            
             <div class="video-player">
-                <?php if ($primeira_aula): ?>
-                    <video id="video-aula" controls src="<?php echo htmlspecialchars($primeira_aula['video_url']); ?>" class="responsive-video"></video>
+                <?php $youtube_id = get_youtube_id($primeira_aula['video_url']); ?>
+                <?php if ($youtube_id): ?>
+                    <iframe src="https://www.youtube.com/embed/<?php echo htmlspecialchars($youtube_id); ?>" frameborder="0" allowfullscreen></iframe>
                 <?php else: ?>
-                    <div class="no-video">Nenhuma aula disponível para este curso.</div>
+                    <p>Vídeo da aula não disponível. Verifique a URL do vídeo.</p>
                 <?php endif; ?>
             </div>
-            <h2 id="aula-titulo"><?php echo $primeira_aula ? htmlspecialchars($primeira_aula['titulo']) : 'Nenhuma aula selecionada'; ?></h2>
-            <p id="aula-descricao"><?php echo $primeira_aula ? htmlspecialchars($primeira_aula['descricao']) : ''; ?></p>
-        </div>
+
+            <div class="aula-descricao">
+                <h2>Descrição da Aula</h2>
+                <p><?php echo htmlspecialchars($primeira_aula['descricao']); ?></p>
+            </div>
+        </section>
 
         <aside class="sidebar-aulas">
-            <h2 class="sidebar-title">Aulas do Curso</h2>
-            <ul class="lista-aulas">
-                <?php while ($aula = $result_aulas->fetch_assoc()): ?>
-                    <li class="aula-item" data-video-url="<?php echo htmlspecialchars($aula['video_url']); ?>" data-titulo="<?php echo htmlspecialchars($aula['titulo']); ?>" data-descricao="<?php echo htmlspecialchars($aula['descricao']); ?>">
-                        <span class="aula-titulo"><?php echo htmlspecialchars($aula['titulo']); ?></span>
+            <h2>Aulas do Curso</h2>
+            <ul class="aulas-list">
+                <?php
+                $result_aulas->data_seek(0);
+                while ($aula_sidebar = $result_aulas->fetch_assoc()):
+                    $aula_concluida = in_array($aula_sidebar['id'], $aulas_concluidas);
+                ?>
+                    <li class="<?php echo ($aula_sidebar['id'] == $aula_atual_id) ? 'active' : ''; ?>">
+                        <label class="custom-checkbox-container">
+                            <input type="checkbox"
+                                   class="aula-checkbox"
+                                   data-aula-id="<?php echo htmlspecialchars($aula_sidebar['id']); ?>"
+                                   <?php echo $aula_concluida ? 'checked' : ''; ?>>
+                            <span class="checkmark"></span>
+                            <a href="aula.php?aula_id=<?php echo htmlspecialchars($aula_sidebar['id']); ?>&curso_id=<?php echo htmlspecialchars($curso_id); ?>">
+                                <?php echo htmlspecialchars($aula_sidebar['titulo']); ?>
+                            </a>
+                        </label>
                     </li>
                 <?php endwhile; ?>
             </ul>
         </aside>
-    </div>
+    </main>
 
+    <footer>
+        <p>&copy; 2025 Grow Cursos</p>
+    </footer>
+
+    <script src="js/user_menu.js"></script>
     <script>
-        document.querySelectorAll('.aula-item').forEach(item => {
-            item.addEventListener('click', function() {
-                const videoPlayer = document.getElementById('video-aula');
-                const aulaTitulo = document.getElementById('aula-titulo');
-                const aulaDescricao = document.getElementById('aula-descricao');
-                
-                // Atualiza o src do player de vídeo e o título/descrição
-                videoPlayer.src = this.dataset.videoUrl;
-                aulaTitulo.textContent = this.dataset.titulo;
-                aulaDescricao.textContent = this.dataset.descricao;
+        document.addEventListener('DOMContentLoaded', () => {
+            const checkboxes = document.querySelectorAll('.aula-checkbox');
+
+            checkboxes.forEach(checkbox => {
+                checkbox.addEventListener('change', (event) => {
+                    const aulaId = event.target.dataset.aulaId;
+                    const isChecked = event.target.checked;
+
+                    // Chama o arquivo PHP via AJAX
+                    fetch('marcar_aula_concluida.php', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/x-www-form-urlencoded',
+                        },
+                        body: `id_aula=${aulaId}&concluido=${isChecked}`
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.success) {
+                            console.log('Status da aula atualizado com sucesso!');
+                        } else {
+                            console.error('Erro ao atualizar status da aula:', data.message);
+                            // Reverte a mudança do checkbox em caso de erro
+                            event.target.checked = !isChecked;
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Erro na requisição:', error);
+                        // Reverte a mudança do checkbox em caso de erro
+                        event.target.checked = !isChecked;
+                    });
+                });
             });
         });
     </script>
 </body>
 </html>
+
 <?php
-$stmt_curso->close();
+$stmt_primeira_aula->close();
 $stmt_aulas->close();
 $conn->close();
 ?>

@@ -1,3 +1,21 @@
+<?php
+include("conexao.php");
+
+if (isset($_GET['id'])) {
+    $id = intval($_GET['id']); 
+    $sql = "SELECT nome, email, telefone, cpf FROM usuarios WHERE id = $id";
+    $result = $conn->query($sql);
+
+    if ($result->num_rows > 0) {
+        $aluno = $result->fetch_assoc();
+    } else {
+        die("Aluno não encontrado.");
+    }
+} else {
+    die("ID do aluno não informado.");
+}
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -10,25 +28,27 @@
 <body>
     <header class="top-header">
         <div class="logo">BROW CURSOS</div>
-        <a href="GerenciarAlunos.php" class="back-link">&larr; Voltar para Alunos</a>
+        <a href="gerenciar_alunos.php" class="back-link">&larr; Voltar para Alunos</a>
     </header>
 
     <div class="container">
         <h1 class="page-title">Dados do Aluno</h1>
         
+        <!-- Card com dados reais do aluno -->
         <div class="aluno-details-card">
-            <h2 class="section-heading">Informações Pessoais</h2>
+            <h3 class="section-heading">Informações Pessoais</h3>
             <div class="info-group">
-                <p><strong>Nome:</strong> Maria da Silva</p>
-                <p><strong>E-mail:</strong> maria.silva@email.com</p>
-                <p><strong>Telefone:</strong> (11) 98765-4321</p>
-                <p><strong>CPF:</strong> 123.456.789-00</p>
+                <p><strong>Nome:</strong> <?php echo $aluno['nome']; ?></p>
+                <p><strong>E-mail:</strong> <?php echo $aluno['email']; ?></p>
+                <p><strong>Telefone:</strong> <?php echo $aluno['telefone']; ?></p>
+                <p><strong>CPF:</strong> <?php echo $aluno['cpf']; ?></p>
             </div>
-            <a href="#" class="btn-edit">Editar Dados</a>
+            <a href="editar-dados.php?id=<?php echo $id; ?>" class="btn-edit">Editar Dados</a>
         </div>
 
         <h1 class="page-title">Cursos do Aluno</h1>
 
+        <!-- Cursos (aqui ainda está fixo, mas dá pra puxar do BD depois) -->
         <div class="courses-list-card">
             <div class="course-item">
                 <div class="course-info">
@@ -38,7 +58,7 @@
                         <p class="status liberado">Liberado</p>
                     </div>
                 </div>
-                <a href="adicionar-certificado.php?student_id=1&course_id=1" class="btn-cert">Adicionar Certificado</a>
+                <a href="adicionar-certificado.php?student_id=<?php echo $id; ?>&course_id=1" class="btn-cert">Adicionar Certificado</a>
             </div>
 
             <div class="course-item">
@@ -52,7 +72,6 @@
                 <a href="#" class="btn-cert disabled">Certificado Indisponível</a>
             </div>
         </div>
-
     </div>
 </body>
 </html>

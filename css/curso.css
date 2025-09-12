@@ -1,0 +1,360 @@
+   *{ margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+body {
+    background-color: #f4f4f4;
+}
+
+header {
+    background-color: #b19b73;
+    color: #fff;
+    padding: 1rem 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #fff;
+    text-decoration: none;
+}
+
+.navbar ul {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+}
+
+.navbar a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s;
+}
+
+.navbar a:hover {
+    color: #007BFF;
+}
+
+.user-menu {
+    position: relative;
+    padding: 1rem;
+}
+
+.avatar {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background-color: #444;
+    overflow: hidden;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.dropdown {
+    display: none;
+    position: absolute;
+    right: 0;
+    margin-top: 10px;
+    background-color: #000;
+    min-width: 160px;
+    border-radius: 8px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    z-index: 1;
+}
+
+.dropdown a {
+    color: white;
+    padding: 10px 15px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown a:hover {
+    background-color: #333;
+}
+
+.dropdown hr {
+    border: none;
+    border-top: 1px solid #444;
+    margin: 5px 0;
+}
+
+.show {
+    display: block;
+}
+
+.cursos-section {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 2rem;
+    text-align: center;
+}
+
+.page-title {
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 2rem;
+}
+
+.cursos-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.curso-card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.2s;
+}
+
+.curso-card:hover {
+    transform: translateY(-5px);
+}
+
+.curso-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.curso-card h2 {
+    font-size: 1.5rem;
+    margin: 1rem;
+    color: #333;
+}
+
+.curso-card p {
+    font-size: 1rem;
+    color: #666;
+    padding: 0 1rem 1rem;
+    text-align: left;
+}
+
+.curso-card .btn-acessar {
+    display: block;
+    width: calc(100% - 2rem);
+    margin: 1rem;
+    padding: 0.75rem;
+    background-color: #b19b73;
+    color: #fff;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.2s;
+}
+
+.curso-card .btn-acessar:hover {
+    background-color: #9b8163;
+}
+
+.curso-detalhe {
+    max-width: 900px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.curso-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.curso-header h1 {
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 0.5rem;
+}
+
+.curso-header p {
+    font-size: 1.1rem;
+    color: #666;
+}
+
+.aulas-container {
+    margin-top: 2rem;
+}
+
+.aulas-container h2 {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 1rem;
+    border-bottom: 2px solid #b19b73;
+    padding-bottom: 0.5rem;
+}
+
+.aulas-list {
+    list-style: none;
+}
+
+.aulas-list li {
+    background-color: #f9f9f9;
+    padding: 1rem;
+    border-radius: 5px;
+    margin-bottom: 1rem;
+    transition: background-color 0.2s;
+}
+
+.aulas-list li:hover {
+    background-color: #e9e9e9;
+}
+
+.aulas-list a {
+    text-decoration: none;
+    color: #333;
+    font-size: 1.2rem;
+    display: block;
+}
+
+/* Estilo para a página de aula */
+.aula-main {
+    display: flex;
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 2rem;
+    gap: 2rem;
+}
+
+.video-content {
+    flex: 3;
+}
+
+.video-player {
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-bottom: 56.25%; /* Proporção 16:9 */
+    background-color: #000;
+}
+
+.video-player iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+.aula-descricao {
+    margin-top: 2rem;
+    padding: 1.5rem;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.aula-descricao h2 {
+    font-size: 1.8rem;
+    color: #333;
+    margin-bottom: 1rem;
+}
+
+.aula-descricao p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #666;
+}
+
+.sidebar-aulas {
+    flex: 1;
+    background-color: #fff;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar-aulas h2 {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 1rem;
+    border-bottom: 2px solid #b19b73;
+    padding-bottom: 0.5rem;
+}
+
+.sidebar-aulas .aulas-list {
+    list-style: none;
+}
+
+.sidebar-aulas .aulas-list li {
+    padding: 0.75rem;
+    margin-bottom: 0.5rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.sidebar-aulas .aulas-list li:hover {
+    background-color: #f0f0f0;
+}
+
+.sidebar-aulas .aulas-list li.active {
+    background-color: #b19b73;
+}
+
+.sidebar-aulas .aulas-list li.active a {
+    color: #fff;
+    font-weight: bold;
+}
+
+.sidebar-aulas .aulas-list a {
+    text-decoration: none;
+    color: #333;
+    display: block;
+}
+
+/* Estilo para a lista de aulas na barra lateral */
+.sidebar-aulas .aulas-list li {
+    display: flex !important; /* Força o alinhamento flex */
+    align-items: center !important; /* Força a centralização vertical */
+    padding: 0.75rem !important;
+    margin-bottom: 0.5rem !important;
+    border-radius: 5px !important;
+    cursor: pointer !important;
+    transition: background-color 0.2s !important;
+}
+
+/* Garante que o checkbox tenha espaçamento */
+.sidebar-aulas .aulas-list li input[type="checkbox"] {
+    margin-right: 10px !important; /* Adiciona espaço entre o checkbox e o texto */
+}
+
+/* Garante que o link ocupe o espaço restante */
+.sidebar-aulas .aulas-list li a {
+    text-decoration: none !important;
+    color: #333 !important;
+    display: block !important;
+    flex-grow: 1 !important; /* Faz o link ocupar o espaço restante */
+}
+
+.sidebar-aulas .aulas-list li.active a {
+    color: #fff !important;
+    font-weight: bold !important;
+}

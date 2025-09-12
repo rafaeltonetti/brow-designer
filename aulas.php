@@ -40,19 +40,46 @@ if ($curso_id) {
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['add_aula'])) {
     $titulo_aula = $_POST['titulo_aula'];
     $descricao_aula = $_POST['descricao_aula'];
-    $video_url = $_POST['video_url'];
+    
+    // Processamento do upload do vídeo
+    $video_url = ""; // Caminho padrão caso o upload falhe
 
-    $stmt_aula = $conn->prepare("INSERT INTO aulas (titulo, descricao, video_url, curso_id) VALUES (?, ?, ?, ?)");
-    $stmt_aula->bind_param("sssi", $titulo_aula, $descricao_aula, $video_url, $curso_id);
+    if (isset($_FILES['video-file']) && $_FILES['video-file']['error'] == 0) {
+        $upload_dir = 'uploads/aulas/'; // Diretório de destino
+        
+        // Verifica se o diretório existe, senão o cria
+        if (!is_dir($upload_dir)) {
+            mkdir($upload_dir, 0777, true);
+        }
 
-    if ($stmt_aula->execute()) {
-        echo "<script>alert('Aula adicionada com sucesso!');</script>";
+        $video_name = basename($_FILES['video-file']['name']);
+        $video_path = $upload_dir . uniqid() . '-' . $video_name; // Gera um nome único
+
+        // Move o arquivo temporário para o destino final
+        if (move_uploaded_file($_FILES['video-file']['tmp_name'], $video_path)) {
+            $video_url = $video_path; // Salva o caminho do arquivo
+        } else {
+            echo "<script>alert('Erro ao fazer upload do vídeo.');</script>";
+        }
     } else {
-        echo "<script>alert('Erro ao adicionar aula: " . $stmt_aula->error . "');</script>";
+        echo "<script>alert('Nenhum arquivo de vídeo foi enviado.');</script>";
     }
+    
+    if ($video_url != "") {
+        // Insere a aula no banco de dados com o caminho do arquivo
+        $stmt_aula = $conn->prepare("INSERT INTO aulas (titulo, descricao, video_url, curso_id) VALUES (?, ?, ?, ?)");
+        $stmt_aula->bind_param("sssi", $titulo_aula, $descricao_aula, $video_url, $curso_id);
 
-    $stmt_aula->close();
+        if ($stmt_aula->execute()) {
+            echo "<script>alert('Aula adicionada com sucesso!');</script>";
+        } else {
+            echo "<script>alert('Erro ao adicionar aula: " . $stmt_aula->error . "');</script>";
+        }
+        $stmt_aula->close();
+    }
 }
+
+$conn->close();
 ?>
 
 <!DOCTYPE html>
@@ -73,7 +100,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['add_aula'])) {
         <h1 class="page-title">Adicionar Aulas</h1>
         <h2 class="course-subtitle">Curso: <?php echo htmlspecialchars($curso_nome); ?></h2>
         
-        <form action="aulas.php?course_id=<?php echo $curso_id; ?>" method="POST" class="add-aula-form">
+        <form action="aulas.php?course_id=<?php echo $curso_id; ?>" method="POST" class="add-aula-form" enctype="multipart/form-data">
             <input type="hidden" name="add_aula" value="1">
             <div class="input-group">
                 <label for="titulo_aula">Título da Aula</label>
@@ -86,8 +113,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['add_aula'])) {
             </div>
 
             <div class="input-group">
-                <label for="video_url">URL do Vídeo</label>
-                <input type="text" id="video_url" name="video_url" required>
+                <label for="video-file">Vídeo da Aula</label>
+                <input type="file" id="video-file" name="video-file" accept="video/mp4,video/webm" required>
             </div>
             
             <button type="submit" class="btn-add-aula">Adicionar Aula</button>

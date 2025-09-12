@@ -136,3 +136,21 @@ body {
 .forgot-password:hover {
     color: #a8796a;
 }
+
+.botoeslow {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-top: 10px;
+    gap: 2rem;
+    margin-top: 10px;
+}
+
+.botoeslow a {
+    display: flex;
+    align-items: center;
+    margin-top: 5px;
+    justify-content: center;
+    margin-top: 0; /* sobrescreve o margin-top */
+    left: 10px;
+}

@@ -1,18 +1,43 @@
+/* Importação da fonte do Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+/* Estilos de Cores */
 body {
-    background-color: #2c2929;
-    color: #f0f0f0;
+    background-image: url(../img/espirais-definitivo.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100%;
+    color: white;
     font-family: 'Montserrat', sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh; /* Use min-height para permitir que o conteúdo se ajuste */
+    height: 100vh;
     margin: 0;
-    padding: 20px 0; /* Adiciona um pouco de padding para telas menores */
-    box-sizing: border-box; /* Garante que o padding não aumente o tamanho */
+}
+
+:root {
+    --bg-color: #2c2929;
+    --card-bg: #1e1e1e;
+    --text-color: #f0f0f0;
+    --input-bg: #383838;
+    --input-focus-bg: #444;
+    --accent-color: #a8796a; 
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: 'Montserrat', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
 }
 
 .cadastro-container {
-    background-color: #1e1e1e;
+    background-color: var(--card-bg);
     padding: 60px 40px;
     border-radius: 10px;
     width: 350px;
@@ -23,7 +48,7 @@ body {
 .logo {
     font-size: 24px;
     font-weight: 700;
-    color: #d4af37; /* Cor dourada */
+    color: var(--accent-color);
     letter-spacing: 2px;
     margin-bottom: 40px;
 }
@@ -51,32 +76,32 @@ body {
 .input-group input {
     width: 100%;
     padding: 15px;
-    background-color: #383838;
+    background-color: var(--input-bg);
     border: none;
     border-radius: 5px;
     color: #fff;
     font-size: 16px;
-    box-sizing: border-box; /* Garante que o padding não aumente a largura */
+    box-sizing: border-box;
     transition: background-color 0.3s;
 }
 
 .input-group input:focus {
     outline: none;
-    background-color: #444;
+    background-color: var(--input-focus-bg);
 }
 
 .btn-cadastro {
     width: 100%;
     padding: 15px;
-    background-color: #d4af37;
-    color: #1e1e1e;
+    background-color: var(--accent-color);
+    color: var(--card-bg);
     font-size: 16px;
     font-weight: 700;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s;
-    margin-top: 10px; /* Espaçamento acima do botão */
+    margin-top: 10px;
 }
 
 .btn-cadastro:hover {
@@ -92,13 +117,5 @@ body {
 }
 
 .login-link:hover {
-    color: #d4af37;
-}
-
-/* Responsividade básica para telas menores */
-@media (max-width: 400px) {
-    .cadastro-container {
-        width: 90%;
-        padding: 40px 20px;
-    }
+    color: var(--accent-color);
 }

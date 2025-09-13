@@ -19,7 +19,7 @@ body {
 .logo {
     font-size: 18px;
     font-weight: 700;
-    color: #d4af37;
+    color: #a8796a;
     letter-spacing: 1px;
 }
 
@@ -31,7 +31,7 @@ body {
 }
 
 .back-link:hover {
-    color: #d4af37;
+    color: #a8796a;
 }
 
 /* --- Conteúdo Principal --- */
@@ -51,7 +51,7 @@ body {
 
 .section-heading {
     font-size: 20px;
-    color: #d4af37;
+    color: #a8796a;
     margin-top: 0;
     margin-bottom: 20px;
 }
@@ -78,7 +78,7 @@ body {
 .btn-edit {
     display: inline-block;
     background-color: #383838;
-    color: #d4af37;
+    color: #a8796a;
     padding: 10px 20px;
     border-radius: 5px;
     text-decoration: none;
@@ -145,7 +145,7 @@ body {
 }
 
 .btn-cert {
-    background-color: #d4af37;
+    background-color: #a8796a;
     color: #1e1e1e;
     padding: 10px 15px;
     border-radius: 5px;
@@ -157,7 +157,7 @@ body {
 }
 
 .btn-cert:hover:not(.disabled) {
-    background-color: #c7a435;
+    background-color: #a8796a;
 }
 
 .btn-cert.disabled {

@@ -4,8 +4,8 @@
 /* Estilos gerais do corpo, se não estiverem em um arquivo global */
 body {
     font-family: 'Montserrat', sans-serif;
-    background-color: #f4f4f4;
-    color: #333;
+    background-color: #1e1e1e;
+    color: #fff;
     margin: 0;
     line-height: 1.6;
 }
@@ -18,8 +18,8 @@ body {
 }
 
 h1 {
-    color: #b19b73;
-    border-bottom: 2px solid #b19b73;
+    color: #fff;
+    border-bottom: 2px solid #a8796a;
     padding-bottom: 0.5rem;
     margin-bottom: 2rem;
 }
@@ -65,21 +65,21 @@ tbody tr:nth-child(even) {
 }
 
 .btn-details {
-    background-color: #b19b73;
+    background-color: #a8796a;
     color: #fff;
 }
 
 .btn-cert {
-    background-color: #d19f4a;
+    background-color: #a8796a;
     color: #fff;
 }
 
 .btn-details:hover {
-    background-color: #a08c69;
+    background-color: #a8796a;
 }
 
 .btn-cert:hover {
-    background-color: #c0903a;
+    background-color: #a8796a;
 }
 
 .no-records {
@@ -90,9 +90,9 @@ tbody tr:nth-child(even) {
 
 /* Estilos de layout já existentes para a navegação e o rodapé */
 #navbar {
-    background: #fff;
-    color: #333;
-    border-bottom: 2px solid #b19b73;
+    background: #1e1e1e;
+    color: #fff;
+    border-bottom: 2px solid #a8796a;
     position: sticky;
     top: 0;
     z-index: 1000;
@@ -126,14 +126,14 @@ tbody tr:nth-child(even) {
 }
 
 .navbar ul li a {
-    color: #333;
+    color: #fff;
     text-decoration: none;
     font-weight: 400;
     transition: color 0.3s;
 }
 
 .navbar ul li a:hover {
-    color: #b19b73;
+    color: #a8796a;
 }
 
 .user-menu {

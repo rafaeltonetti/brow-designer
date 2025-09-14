@@ -60,12 +60,12 @@ $result_aulas = $stmt_aulas->get_result();
 
 // Busca as aulas que o usuário já concluiu
 $aulas_concluidas = [];
-$stmt_concluidas = $conn->prepare("SELECT id_aula FROM aulas_concluidas WHERE id_usuario = ?");
+$stmt_concluidas = $conn->prepare("SELECT aula_id FROM aulas_concluidas WHERE usuario_id = ?");
 $stmt_concluidas->bind_param("i", $id_usuario);
 $stmt_concluidas->execute();
 $result_concluidas = $stmt_concluidas->get_result();
 while ($row = $result_concluidas->fetch_assoc()) {
-    $aulas_concluidas[] = intval($row['id_aula']);
+    $aulas_concluidas[] = intval($row['aula_id']);
 }
 $stmt_concluidas->close();
 
@@ -226,7 +226,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 headers: {
                     'Content-Type': 'application/x-www-form-urlencoded',
                 },
-                body: `id_aula=${encodeURIComponent(aulaId)}&concluido=${encodeURIComponent(isChecked ? 1 : 0)}`
+                body: `aula_id=${encodeURIComponent(aulaId)}&concluido=${encodeURIComponent(isChecked ? 1 : 0)}`
             })
             .then(response => {
                 if (!response.ok) {

@@ -4,38 +4,45 @@ include 'conexao.php';
 
 header('Content-Type: application/json');
 
-// Verifica se o usuário está logado
+$response = array('success' => false, 'message' => '');
+
 if (!isset($_SESSION['id_usuario'])) {
-    echo json_encode(['success' => false, 'message' => 'Usuário não autenticado.']);
+    $response['message'] = "Usuário não logado.";
+    echo json_encode($response);
     exit();
 }
 
-// Verifica se a requisição é um POST e se os dados necessários foram enviados
-if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id_aula']) && isset($_POST['concluido'])) {
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $aula_id = isset($_POST['aula_id']) ? intval($_POST['aula_id']) : 0;
+    $concluido = isset($_POST['concluido']) ? intval($_POST['concluido']) : 0;
     $id_usuario = $_SESSION['id_usuario'];
-    $id_aula = $_POST['id_aula'];
-    $concluido = $_POST['concluido'] === 'true';
 
-    if ($concluido) {
-        // Marcar a aula como concluída: insere o registro.
-        // O ON DUPLICATE KEY UPDATE evita erros se o registro já existir.
-        $stmt = $conn->prepare("INSERT INTO aulas_concluidas (id_usuario, id_aula) VALUES (?, ?) ON DUPLICATE KEY UPDATE id_aula = id_aula");
-        $stmt->bind_param("ii", $id_usuario, $id_aula);
+    if ($aula_id > 0) {
+        if ($concluido == 1) {
+            // Insere na tabela 'aulas_concluidas'
+            $stmt = $conn->prepare("INSERT INTO aulas_concluidas (aula_id, usuario_id) VALUES (?, ?)");
+            $stmt->bind_param("ii", $aula_id, $id_usuario);
+        } else {
+            // Remove da tabela 'aulas_concluidas'
+            $stmt = $conn->prepare("DELETE FROM aulas_concluidas WHERE aula_id = ? AND usuario_id = ?");
+            $stmt->bind_param("ii", $aula_id, $id_usuario);
+        }
+
+        if ($stmt->execute()) {
+            $response['success'] = true;
+            $response['message'] = "Status da aula atualizado com sucesso.";
+        } else {
+            $response['message'] = "Erro ao atualizar o status da aula: " . $stmt->error;
+        }
+
+        $stmt->close();
     } else {
-        // Desmarcar a aula: deleta o registro.
-        $stmt = $conn->prepare("DELETE FROM aulas_concluidas WHERE id_usuario = ? AND id_aula = ?");
-        $stmt->bind_param("ii", $id_usuario, $id_aula);
+        $response['message'] = "ID da aula inválido.";
     }
-
-    if ($stmt->execute()) {
-        echo json_encode(['success' => true]);
-    } else {
-        echo json_encode(['success' => false, 'message' => 'Erro ao atualizar o banco de dados.']);
-    }
-
-    $stmt->close();
-    $conn->close();
 } else {
-    echo json_encode(['success' => false, 'message' => 'Requisição inválida.']);
+    $response['message'] = "Requisição inválida.";
 }
+
+$conn->close();
+echo json_encode($response);
 ?>

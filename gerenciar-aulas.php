@@ -72,14 +72,26 @@ $conn->close();
     <title>Gerenciar Aulas - <?php echo htmlspecialchars($curso_nome); ?></title>
     <link rel="stylesheet" href="css/gerenciar-aulas.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-    <header class="top-header">
-        <div class="logo">BROW CURSOS</div>
-        <a href="GerenciarCursos.php" class="back-link">&larr; Voltar para Gerenciar Cursos</a>
-    </header>
+    <nav class="navbar navbar-expand-lg navbar-dark pt-4 pb-4 mb-4">
+        <div class="container">
+        <a class="navbar-brand" href="#">Brow Designer</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="menu">
+            <ul class="navbar-nav ms-auto">
+            <li class="nav-item"><a class="nav-link" href="#">Botão 1</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">Botão 2</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">Botão 3</a></li>
+            </ul>
+        </div>
+        </div>
+    </nav>
 
-    <div class="container">
+    <div class="site-container">
         <h1 class="page-title">Gerenciar Aulas</h1>
         <h2 class="course-subtitle">Curso: <?php echo htmlspecialchars($curso_nome); ?></h2>
         
@@ -106,5 +118,6 @@ $conn->close();
             <a href="aulas.php?course_id=<?php echo $curso_id; ?>" class="btn-add-new-aula">+ Adicionar Nova Aula</a>
         </div>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

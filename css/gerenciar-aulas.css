@@ -1,9 +1,18 @@
 body {
-    background-color: #2c2929;
-    color: #f0f0f0;
+    background-color: white;
+    color: black;
     font-family: 'Montserrat', sans-serif;
     margin: 0;
     padding: 0;
+}
+
+.navbar {
+    background-color: #a8796a;
+}
+
+.navbar-brand {
+    font-weight: bold;
+    color: white !important;
 }
 
 .top-header {
@@ -18,7 +27,7 @@ body {
 .logo {
     font-size: 24px;
     font-weight: 700;
-    color: #d4af37;
+    color: #a8796a;
     letter-spacing: 2px;
 }
 
@@ -30,10 +39,10 @@ body {
 }
 
 .back-link:hover {
-    color: #d4af37;
+    color: #a8796a;
 }
 
-.container {
+.site-container {
     max-width: 800px;
     margin: 50px auto;
     padding: 20px;
@@ -62,6 +71,7 @@ body {
 
 .aula-card {
     background-color: #1e1e1e;
+    color: white;
     border-radius: 10px;
     padding: 25px;
     display: flex;
@@ -92,7 +102,7 @@ body {
 
 .btn-action {
     padding: 10px 15px;
-    background-color: #d4af37;
+    background-color: #a8796a;
     color: #1e1e1e;
     text-decoration: none;
     font-weight: bold;
@@ -101,7 +111,7 @@ body {
 }
 
 .btn-action:hover {
-    background-color: #c7a435;
+    background-color: #bf8a78;
 }
 
 .btn-danger {
@@ -118,7 +128,7 @@ body {
 }
 
 .btn-add-new-aula {
-    background-color: #d4af37;
+    background-color: #a8796a;
     color: #1e1e1e;
     font-size: 16px;
     font-weight: 700;
@@ -129,5 +139,5 @@ body {
 }
 
 .btn-add-new-aula:hover {
-    background-color: #c7a435;
+    background-color: #bf8a78;
 }

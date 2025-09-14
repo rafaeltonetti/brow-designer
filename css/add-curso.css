@@ -1,5 +1,8 @@
 body {
-    background-color: #b9b8b8;
+    background-image: url(../img/espirais-definitivo.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100%;
     color: black;
     font-family: 'Montserrat', sans-serif;
     display: flex;

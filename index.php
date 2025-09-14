@@ -8,8 +8,6 @@
   <link rel="stylesheet" href="./css/home.css">
 </head>
 <body>
-
-  <!-- Navbar -->
   <nav class="navbar navbar-expand-lg navbar-dark pt-4 pb-4">
     <div class="container">
       <a class="navbar-brand" href="#">Brow Designer</a>
@@ -20,38 +18,36 @@
         <ul class="navbar-nav ms-auto">
           <li class="nav-item"><a class="nav-link" href="#cursos">Cursos</a></li>
           <li class="nav-item"><a class="nav-link" href="#sobre">Quem sou eu</a></li>
-          <li class="nav-item"><a class="btn btn-gold ms-2" href="cadastro.php">Inscreva-se</a></li>
+          <li class="nav-item"><a class="btn btn-gold ms-2" href="login.php">Login</a></li>
         </ul>
       </div>
     </div>
   </nav>
 
-  <!-- Hero -->
   <section class="hero">
     <h1>Curso de Design de Sobrancelhas</h1>
     <p class="lead">Torne-se uma profissional de excelência com técnicas modernas e exclusivas.</p>
   </section>
 
-  <!-- Cursos -->
   <section class="py-5">
     <div class="container">
       <h2 class="fw-bold text-center mb-5">O que você vai aprender</h2>
       <div class="row g-4">
         <div class="col-md-4 text-center">
           <img src="../brow-designer/pinceis.jpg"
-               class="img-fluid rounded-circle mb-3 shadow w-50 img-thumbnail" alt="Materiais">
+                class="img-fluid rounded-circle mb-3 shadow w-50 img-thumbnail" alt="Materiais">
           <h5 class="fw-bold">Técnicas Avançadas</h5>
           <p>Aprenda métodos modernos de design para realçar a beleza natural de cada cliente.</p>
         </div>
         <div class="col-md-4 text-center">
           <img src="../brow-designer/pinceis.jpg"
-               class="img-fluid rounded-circle mb-3 shadow w-50 img-thumbnail" alt="Materiais">
+                class="img-fluid rounded-circle mb-3 shadow w-50 img-thumbnail" alt="Materiais">
           <h5 class="fw-bold">Ferramentas de Qualidade</h5>
           <p>Descubra como escolher materiais adequados para obter resultados impecáveis.</p>
         </div>
         <div class="col-md-4 text-center">
           <img src="../brow-designer/pinceis.jpg"
-               class="img-fluid rounded-circle mb-3 shadow w-50 img-thumbnail" alt="Materiais">
+                class="img-fluid rounded-circle mb-3 shadow w-50 img-thumbnail" alt="Materiais">
           <h5 class="fw-bold">Olhar crítico</h5>
           <p>Desenvolva a capacidade de analisar cada rosto com atenção aos detalhes.</p>
         </div>
@@ -59,7 +55,6 @@
     </div>
   </section>
 
-  <!-- Quem Sou Eu -->
   <section id="sobre" class="about mt-5">
     <div class="container">
       <div class="row align-items-center">
@@ -77,18 +72,16 @@
     </div>
   </section>
 
-  <!-- Inscrição -->
   <section id="inscricao" class="container text-center my-5">
     <h2 class="section-title">Garanta sua Vaga!</h2>
     <p>Entre em contato para informações sobre datas, valores e formas de pagamento.</p>
     <a href="https://wa.me/5599999999999" target="_blank" class="btn btn-success btn-lg">Falar no WhatsApp</a>
   </section>
 
-  <!-- Footer -->
   <footer>
     <p>&copy; 2025 Brow Designer - Todos os direitos reservados.</p>
   </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-</body>
-</html>
+  </body>
+  </html>

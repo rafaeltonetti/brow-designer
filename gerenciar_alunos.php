@@ -31,32 +31,31 @@ try {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gerenciar Alunos - BROW CURSOS</title>
     <link rel="stylesheet" href="css/gerenciar_alunos.css">
-    <link rel="stylesheet" href="css/main.css"> </head>
+    <link rel="stylesheet" href="css/main.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
 <body>
 
-    <header id="navbar">
-        <div class="navbar">
-            <a href="index.php" class="logo">BROW CURSOS</a>
-            <ul>
-                <li><a href="index.php">Início</a></li>
-                <li><a href="cursos.php">Cursos</a></li>
-                <li><a href="certificados.php">Certificados</a></li>
-                <li class="user-menu">
-                    <div class="avatar">
-                        <img src="https://via.placeholder.com/40" alt="Avatar">
-                    </div>
-                    <div class="dropdown">
-                        <a href="userpage.php">Meu Perfil</a>
-                        <hr>
-                        <a href="logout.php">Sair</a>
-                    </div>
-                </li>
+    <nav class="navbar navbar-expand-lg navbar-dark pt-4 pb-4 mb-4">
+        <div class="container">
+        <a class="navbar-brand" href="#">Brow Designer</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="menu">
+            <ul class="navbar-nav ms-auto">
+            <li class="nav-item"><a class="nav-link" href="#">Botão 1</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">Botão 2</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">Botão 3</a></li>
             </ul>
         </div>
-    </header>
+        </div>
+    </nav>
 
-    <div class="admin-container">
-        <h1>Gerenciar Alunos</h1>
+    <div class="container">
+        <center>
+            <h1 class="page-title">Gerenciar Alunos</h1>
+        </center>
 
         <div class="table-container">
             <table>
@@ -88,11 +87,8 @@ try {
             </table>
         </div>
     </div>
-
-    <footer>
-        &copy; <?php echo date("Y"); ?> BROW CURSOS. Todos os direitos reservados.
-    </footer>
     
     <script src="js/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

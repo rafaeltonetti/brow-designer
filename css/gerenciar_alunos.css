@@ -10,6 +10,15 @@ body {
     line-height: 1.6;
 }
 
+.navbar {
+    background-color: #a8796a;
+}
+
+.navbar-brand {
+    font-weight: bold;
+    color: white !important;
+}
+
 /* Container principal da página de administração */
 .admin-container {
     max-width: 1000px;
@@ -19,7 +28,6 @@ body {
 
 h1 {
     color: #fff;
-    border-bottom: 2px solid #a8796a;
     padding-bottom: 0.5rem;
     margin-bottom: 2rem;
 }
@@ -88,54 +96,6 @@ tbody tr:nth-child(even) {
     padding: 2rem;
 }
 
-/* Estilos de layout já existentes para a navegação e o rodapé */
-#navbar {
-    background: #1e1e1e;
-    color: #fff;
-    border-bottom: 2px solid #a8796a;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-}
-
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem 2rem;
-    max-width: 1200px;
-    margin: auto;
-}
-
-.navbar .logo {
-    font-weight: 700;
-    color: #b19b73;
-    text-decoration: none;
-    font-size: 1.5rem;
-}
-
-.navbar ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-}
-
-.navbar ul li {
-    margin-left: 1.5rem;
-}
-
-.navbar ul li a {
-    color: #fff;
-    text-decoration: none;
-    font-weight: 400;
-    transition: color 0.3s;
-}
-
-.navbar ul li a:hover {
-    color: #a8796a;
-}
-
 .user-menu {
     position: relative;
     cursor: pointer;
@@ -180,12 +140,4 @@ tbody tr:nth-child(even) {
 
 .user-menu:hover .dropdown, .user-menu.active .dropdown {
     display: block;
-}
-
-footer {
-    text-align: center;
-    padding: 1rem;
-    background-color: #333;
-    color: #fff;
-    margin-top: 2rem;
 }

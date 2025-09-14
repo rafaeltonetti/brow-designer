@@ -76,7 +76,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <body>
     <div class="admin-container">
         <div class="logo">
-            BROW CURSOS
+            BROW DESIGNER
         </div>
         
         <h1 class="page-title">Adicionar Novo Curso</h1>

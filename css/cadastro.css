@@ -1,7 +1,5 @@
-/* Importação da fonte do Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
 
-/* Estilos de Cores */
 body {
     background-image: url(../img/espirais-definitivo.jpg);
     background-repeat: no-repeat;
@@ -22,7 +20,7 @@ body {
     --text-color: #f0f0f0;
     --input-bg: #383838;
     --input-focus-bg: #444;
-    --accent-color: #a8796a; 
+    --accent-color: #a8796a;
 }
 
 body {

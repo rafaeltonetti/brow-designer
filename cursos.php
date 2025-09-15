@@ -22,23 +22,26 @@ $result = $stmt->get_result();
     <title>Cursos Disponíveis</title>
     <link rel="stylesheet" href="css/cursos.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-    <header class="top-header">
-        <div class="logo">BROW CURSOS</div>
-        <?php
-// Extrai o primeiro nome do nome completo
-$nome_completo = $_SESSION['nome_usuario'];
-$primeiro_nome = explode(" ", $nome_completo)[0];
-?>
+    <nav class="navbar navbar-expand-lg navbar-dark pt-4 pb-4 mb-4">
+        <div class="container">
+        <a class="navbar-brand" href="#">Brow Designer</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="menu">
+            <ul class="navbar-nav ms-auto">
+            <li class="nav-item"><a class="nav-link" href="#">Botão 1</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">Botão 2</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">Botão 3</a></li>
+            </ul>
+        </div>
+        </div>
+    </nav>
 
-<div class="user-info">
-    <a href="userpage.php">Olá, <?php echo htmlspecialchars($primeiro_nome); ?></a>
-    <a href="logout.php">Sair</a>
-</div>
-    </header>
-
-    <div class="container">
+    <div class="container-site">
         <h1 class="page-title">Cursos Disponíveis</h1>
         
         <div class="course-list">
@@ -57,6 +60,7 @@ $primeiro_nome = explode(" ", $nome_completo)[0];
             <?php endif; ?>
         </div>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
 <?php

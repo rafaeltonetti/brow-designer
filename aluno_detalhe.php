@@ -1,12 +1,12 @@
 <?php
-include("conexao.php"); // sua conexão com o banco
+include("conexao.php");
 
 $sql = "SELECT id, nome, cpf, telefone, email FROM usuarios";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
     echo "<form method='POST' action='processa_aluno.php'>";
-    while($row = $result->fetch_assoc()) {
+    while ($row = $result->fetch_assoc()) {
         echo "<div class='aluno-item'>";
         echo "<input type='checkbox' name='alunos[]' value='" . $row['id'] . "'>";
         echo "<label>";
@@ -27,12 +27,15 @@ if ($result->num_rows > 0) {
 
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Detalhes do Aluno - <?php echo htmlspecialchars($aluno['nome']); ?></title>
     <link rel="stylesheet" href="css/aluno_detalhe.css">
-    <link rel="stylesheet" href="css/main.css"> </head>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+
 <body>
 
     <header id="navbar">
@@ -64,7 +67,7 @@ if ($result->num_rows > 0) {
                 <h3>E-mail:</h3>
                 <p><?php echo htmlspecialchars($aluno['email']); ?></p>
             </div>
-            
+
             <div class="cursos-info">
                 <h2>Cursos Matriculados</h2>
                 <?php if ($result_cursos->num_rows > 0): ?>
@@ -79,7 +82,7 @@ if ($result->num_rows > 0) {
             </div>
         </div>
     </div>
-    
+
     <footer>
         &copy; <?php echo date("Y"); ?> BROW CURSOS. Todos os direitos reservados.
     </footer>
@@ -87,4 +90,5 @@ if ($result->num_rows > 0) {
     <script src="js/main.js"></script>
 
 </body>
+
 </html>

@@ -115,7 +115,6 @@ body {
     color: #a8796a;
 }
 
-/* Responsividade básica */
 @media (max-width: 550px) {
     .container {
         width: 90%;

@@ -10,6 +10,15 @@ body {
     line-height: 1.6;
 }
 
+.navbar {
+    background-color: #a8796a;
+}
+
+.navbar-brand {
+    font-weight: bold;
+    color: white !important;
+}
+
 /* Header */
 .top-header {
     background-color: #fff;
@@ -35,19 +44,19 @@ body {
 }
 
 .top-header .user-info a:hover {
-    color: #b19b73;
+    color: #a8796a;
 }
 
 /* Container principal */
-.container {
+.container-site {
     max-width: 960px;
     margin: 2rem auto;
     padding: 0 1rem;
 }
 
 .page-title {
-    color: #b19b73;
-    border-bottom: 2px solid #b19b73;
+    color: #a8796a;
+    border-bottom: 2px solid #a8796a;
     padding-bottom: 0.5rem;
     margin-bottom: 2rem;
 }
@@ -61,7 +70,7 @@ body {
 
 /* Card de cada curso */
 .course-card {
-    background-color: #fff;
+    background-color: #2c2c2c;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     overflow: hidden;
@@ -84,13 +93,13 @@ body {
 /* No arquivo cursos.css */
 .course-info h3 {
     margin-top: 0;
-    color: #b19b73;
+    color: #a8796a;
     font-size: 1.5rem;
     text-align: center; /* Adicionamos esta linha */
 }
 
 .course-info p {
-    color: #555;
+    color: white;
     flex-grow: 1;
 }
 

@@ -75,7 +75,6 @@ body {
     transform: translateY(0);
 }
 
-/* Responsividade básica para telas menores */
 @media (max-width: 500px) {
     .admin-container {
         width: 90%;

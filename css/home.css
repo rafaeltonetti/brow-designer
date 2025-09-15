@@ -1,66 +1,79 @@
 body {
-      font-family: 'Segoe UI', sans-serif;
-      background-color: #ffffff;
-      color: black;
-    }
-    .navbar {
-      background-color: #a8796a;
-    }
-    .navbar-brand {
-      font-weight: bold;
-      color: white !important;
-    }
-    .hero {
-      background: url('../img/herooo\ \(1\).jpg');
-      background-repeat: no-repeat;
-      background-size: 100%;
-      color: white;
-      text-align: center;
-      padding: 120px 20px;
-    }
-    .hero h1 {
-      font-size: 3rem;
-      font-weight: bold;
-    }
-    .section-title {
-      margin: 60px 0 30px;
-      text-align: center;
-      color: #a8796a;
-    }
-    .card {
-      background-color: #cccccc;
-      transition: transform 0.2s;
-      color: white;
-    }
-    .card:hover {
-      transform: scale(1.03);
-    }
-    .card img {
-      height: 250px;
-      object-fit: cover;
-      border-bottom: 2px solid #a8796a;
-    }
-    .card-title {
-      color: #ffffff;
-    }
-    .about {
-      background-color: #1a1a1a;
-      padding: 60px 20px;
-      border-top: 2px solid #2a2a2a;
-      color: white;
-    }
-    footer {
-      background: #0d0d0d;
-      color: #aaa;
-      text-align: center;
-      padding: 20px 10px;
-    }
-    .btn-gold {
-      background-color: white;
-      color: black;
-      font-weight: bold;
-    }
-    .btn-gold:hover {
-      background-color: #cccccc;
-      color: black;
-    }
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #ffffff;
+  color: black;
+}
+
+.navbar {
+  background-color: #a8796a;
+}
+
+.navbar-brand {
+  font-weight: bold;
+  color: white !important;
+}
+
+.hero {
+  background: url('../img/herooo\ \(1\).jpg');
+  background-repeat: no-repeat;
+  background-size: 100%;
+  color: white;
+  text-align: center;
+  padding: 120px 20px;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  font-weight: bold;
+}
+
+.section-title {
+  margin: 60px 0 30px;
+  text-align: center;
+  color: #a8796a;
+}
+
+.card {
+  background-color: #cccccc;
+  transition: transform 0.2s;
+  color: white;
+}
+
+.card:hover {
+  transform: scale(1.03);
+}
+
+.card img {
+  height: 250px;
+  object-fit: cover;
+  border-bottom: 2px solid #a8796a;
+}
+
+.card-title {
+  color: #ffffff;
+}
+
+.about {
+  background-color: #1a1a1a;
+  padding: 60px 20px;
+  border-top: 2px solid #2a2a2a;
+  color: white;
+}
+
+footer {
+  background: #0d0d0d;
+  color: #aaa;
+  text-align: center;
+  padding: 20px 10px;
+}
+
+.btn-gold {
+  background-color: white;
+  color: black;
+  font-weight: bold;
+}
+
+.btn-gold:hover {
+  background-color: #cccccc;
+  color: black;
+}

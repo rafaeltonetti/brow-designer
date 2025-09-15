@@ -19,11 +19,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if ($aula_id > 0) {
         if ($concluido == 1) {
-            // Insere na tabela 'aulas_concluidas'
             $stmt = $conn->prepare("INSERT INTO aulas_concluidas (aula_id, usuario_id) VALUES (?, ?)");
             $stmt->bind_param("ii", $aula_id, $id_usuario);
         } else {
-            // Remove da tabela 'aulas_concluidas'
             $stmt = $conn->prepare("DELETE FROM aulas_concluidas WHERE aula_id = ? AND usuario_id = ?");
             $stmt->bind_param("ii", $aula_id, $id_usuario);
         }
@@ -45,4 +43,3 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 $conn->close();
 echo json_encode($response);
-?>

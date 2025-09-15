@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +8,7 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="./css/home.css">
 </head>
+
 <body>
   <nav class="navbar navbar-expand-lg navbar-dark pt-4 pb-4">
     <div class="container">
@@ -35,19 +37,19 @@
       <div class="row g-4">
         <div class="col-md-4 text-center">
           <img src="../brow-designer/pinceis.jpg"
-                class="img-fluid rounded-circle mb-3 shadow w-50 img-thumbnail" alt="Materiais">
+            class="img-fluid rounded-circle mb-3 shadow w-50 img-thumbnail" alt="Materiais">
           <h5 class="fw-bold">Técnicas Avançadas</h5>
           <p>Aprenda métodos modernos de design para realçar a beleza natural de cada cliente.</p>
         </div>
         <div class="col-md-4 text-center">
           <img src="../brow-designer/pinceis.jpg"
-                class="img-fluid rounded-circle mb-3 shadow w-50 img-thumbnail" alt="Materiais">
+            class="img-fluid rounded-circle mb-3 shadow w-50 img-thumbnail" alt="Materiais">
           <h5 class="fw-bold">Ferramentas de Qualidade</h5>
           <p>Descubra como escolher materiais adequados para obter resultados impecáveis.</p>
         </div>
         <div class="col-md-4 text-center">
           <img src="../brow-designer/pinceis.jpg"
-                class="img-fluid rounded-circle mb-3 shadow w-50 img-thumbnail" alt="Materiais">
+            class="img-fluid rounded-circle mb-3 shadow w-50 img-thumbnail" alt="Materiais">
           <h5 class="fw-bold">Olhar crítico</h5>
           <p>Desenvolva a capacidade de analisar cada rosto com atenção aos detalhes.</p>
         </div>
@@ -65,7 +67,8 @@
           <h2 style="color:#a8796a;">Quem Sou Eu</h2>
           <p>Sou <strong>Marilia Vendrame</strong>, profissional da área da beleza há 4
             anos, sempre me especializando e pensando em trazer o melhor para minhas alunas e minhas clientes. Iniciei minha jornada em Indaiatuba (SP),
-            fidelizando 192 clientes. E agora, a paulista morando em solo carioca, está recomeçando com propósito a fidelização de novas clientes!</p>
+            fidelizando 192 clientes.</p>
+          <p>E agora, a paulista morando em solo carioca, está recomeçando com propósito a fidelização de novas clientes!</p>
           <p>Também leciono cursos presenciais, para quem deseja iniciar ou aperfeiçoar suas técnicas de design com henna, brow lamination e lash lifting.</p>
         </div>
       </div>
@@ -83,5 +86,6 @@
   </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-  </body>
-  </html>
+</body>
+
+</html>

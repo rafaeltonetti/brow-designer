@@ -1,5 +1,5 @@
 body {
-    background-color: black;
+    background-color: white;
     color: black;
     font-family: 'Montserrat', sans-serif;
     margin: 0;
@@ -40,7 +40,6 @@ body {
     gap: 20px;
 }
 
-/* --- Cards de Cursos --- */
 .course-card {
     background-color: #1e1e1e;
     padding: 20px;
@@ -148,7 +147,7 @@ body {
         width: 100%;
         justify-content: center;
     }
-    
+
     .btn-action {
         flex: 1;
         text-align: center;

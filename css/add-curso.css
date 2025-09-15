@@ -86,7 +86,7 @@ body {
 
 .file-upload-group label {
     height: 30px;
-    width: 480px; /* ou o valor desejado */
+    width: 480px;
     padding: 10px;
     background-color: #383838;
     border: none;
@@ -96,9 +96,9 @@ body {
     text-align: center;
     cursor: pointer;
     transition: background-color 0.3s;
-    display: flex; /* altera para flex */
-    align-items: center; /* centraliza verticalmente */
-    justify-content: center; /* centraliza horizontalmente */
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 
@@ -151,15 +151,14 @@ body {
     align-items: center;
     text-align: center;
     color: #fff;
-    
+
 }
 
-.custom-file-upload input[type="file"]{
+.custom-file-upload input[type="file"] {
     box-sizing: border-box;
-    
+
 }
 
-/* Responsividade básica */
 @media (max-width: 550px) {
     .container {
         width: 90%;

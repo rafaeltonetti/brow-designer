@@ -2,7 +2,6 @@
 session_start();
 include 'conexao.php';
 
-// Verifica se o usuário está logado
 if (!isset($_SESSION['id_usuario'])) {
     header("Location: login.php");
     exit();
@@ -11,14 +10,12 @@ if (!isset($_SESSION['id_usuario'])) {
 $id_usuario = $_SESSION['id_usuario'];
 $nome_usuario = $_SESSION['nome_usuario'];
 
-// Lógica para buscar os dados do usuário no banco de dados
 $stmt = $conn->prepare("SELECT nome, email, telefone, cpf FROM usuarios WHERE id = ?");
 $stmt->bind_param("i", $id_usuario);
 $stmt->execute();
 $result = $stmt->get_result();
 $usuario = $result->fetch_assoc();
 
-// Lógica para processar a alteração de senha
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['change_password'])) {
     $current_password = $_POST['current-password'];
     $new_password = $_POST['new-password'];
@@ -56,6 +53,7 @@ $conn->close();
 
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -64,11 +62,14 @@ $conn->close();
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
 </head>
+
 <body>
     <header>
         <nav id="navbar">
             <div class="navbar">
-                <a href="index.php"><div class="logo">BROW CURSOS</div></a>
+                <a href="index.php">
+                    <div class="logo">BROW CURSOS</div>
+                </a>
                 <ul>
                     <li><a href="index.php">Home</a></li>
                     <li><a href="cursos.php">Cursos</a></li>
@@ -102,13 +103,13 @@ $conn->close();
             </div>
             <div class="profile-container">
                 <h1>Meu Perfil</h1>
-                
+
                 <div class="profile-info">
                     <img src="img/perfil.png" alt="Foto de Perfil" class="profile-picture">
                     <div class="user-details">
                         <p>Nome</p>
                         <p><?php echo htmlspecialchars($usuario['nome']); ?></p>
-                        <p>E-mail</p> 
+                        <p>E-mail</p>
                         <p><?php echo htmlspecialchars($usuario['email']); ?></p>
                         <p>Telefone</p>
                         <p><?php echo htmlspecialchars($usuario['telefone']); ?></p>
@@ -145,4 +146,5 @@ $conn->close();
 
     <script src="js/user_menu.js"></script>
 </body>
+
 </html>

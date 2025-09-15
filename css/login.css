@@ -24,7 +24,8 @@ body {
 .logo {
     font-size: 24px;
     font-weight: 700;
-    color: #a8796a; /* Cor dourada */
+    color: #a8796a;
+    /* Cor dourada */
     letter-spacing: 2px;
     margin-bottom: 40px;
 }
@@ -151,6 +152,7 @@ body {
     align-items: center;
     margin-top: 5px;
     justify-content: center;
-    margin-top: 0; /* sobrescreve o margin-top */
+    margin-top: 0;
+    /* sobrescreve o margin-top */
     left: 10px;
 }

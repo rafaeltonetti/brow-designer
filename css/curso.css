@@ -1,4 +1,4 @@
-   *{ margin: 0;
+*{  margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: sans-serif;
@@ -8,49 +8,20 @@ body {
     background-color: #f4f4f4;
 }
 
+.navbar {
+    background-color: #a8796a;
+}
+
+.navbar-brand {
+    font-weight: bold;
+    color: white !important;
+}
+
 header {
-    background-color: #b19b73;
+    background-color: #a8796a;
     color: #fff;
     padding: 1rem 0;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 2rem;
-}
-
-.logo {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: #fff;
-    text-decoration: none;
-}
-
-.navbar ul {
-    list-style: none;
-    display: flex;
-    gap: 2rem;
-}
-
-.navbar a {
-    color: #fff;
-    text-decoration: none;
-    font-weight: 500;
-    transition: color 0.2s;
-}
-
-.navbar a:hover {
-    color: #007BFF;
-}
-
-.user-menu {
-    position: relative;
-    padding: 1rem;
 }
 
 .avatar {
@@ -161,7 +132,7 @@ header {
     width: calc(100% - 2rem);
     margin: 1rem;
     padding: 0.75rem;
-    background-color: #b19b73;
+    background-color: #a8796a;
     color: #fff;
     text-align: center;
     text-decoration: none;
@@ -170,7 +141,7 @@ header {
 }
 
 .curso-card .btn-acessar:hover {
-    background-color: #9b8163;
+    background-color: #bf8a78;
 }
 
 .curso-detalhe {
@@ -206,7 +177,7 @@ header {
     font-size: 2rem;
     color: #333;
     margin-bottom: 1rem;
-    border-bottom: 2px solid #b19b73;
+    border-bottom: 2px solid #a8796a;
     padding-bottom: 0.5rem;
 }
 
@@ -295,7 +266,7 @@ header {
     font-size: 1.5rem;
     color: #333;
     margin-bottom: 1rem;
-    border-bottom: 2px solid #b19b73;
+    border-bottom: 2px solid #a8796a;
     padding-bottom: 0.5rem;
 }
 
@@ -316,7 +287,7 @@ header {
 }
 
 .sidebar-aulas .aulas-list li.active {
-    background-color: #b19b73;
+    background-color: #a8796a;
 }
 
 .sidebar-aulas .aulas-list li.active a {

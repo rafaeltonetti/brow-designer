@@ -3,14 +3,13 @@
 
 /* Variáveis de cores */
 :root {
-    --bg: #121212;
-    --card: #1c1c1c;
+    --bg: white;
+    --card: #2a2a2a;
     --surface: #2a2a2a;
     --muted: #b0b0b0;
-    --accent: #ffc107;
+    --accent: #a8796a;
 }
 
-/* Estilos gerais */
 body {
     font-family: 'Montserrat', sans-serif;
     background-color: var(--bg);
@@ -19,61 +18,15 @@ body {
     line-height: 1.6;
 }
 
-/* Navbar */
-#navbar {
-    background-color: var(--card);
-    border-bottom: 2px solid rgba(255, 255, 255, 0.03);
-    padding: 18px 60px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    position: fixed;
-    left: 0;
-    right: 0;
-    top: 0;
-    z-index: 1000;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
-    height: 76px;
-}
-
 .navbar {
-    display: flex;
-    align-items: center;
-    width: 100%;
-    gap: 20px;
+    background-color: #a8796a;
 }
 
-.navbar .logo {
-    font-weight: 700;
-    font-size: 1.5em;
-    color: var(--accent);
-    text-decoration: none;
-    margin-right: 30px;
+.navbar-brand {
+    font-weight: bold;
+    color: white !important;
 }
 
-.navbar ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    gap: 18px;
-    align-items: center;
-    flex: 1;
-}
-
-.navbar ul li a {
-    color: #e0e0e0;
-    text-decoration: none;
-    margin: 0;
-    font-weight: 500;
-    transition: color 0.2s;
-}
-
-.navbar ul li a:hover {
-    color: var(--accent);
-}
-
-/* Área do avatar (direita) */
 .user-menu {
     position: relative;
     cursor: pointer;
@@ -125,7 +78,7 @@ body {
     display: flex;
     gap: 30px;
     max-width: 1400px;
-    margin: 120px auto 40px;
+    margin: 30px auto 40px;
     padding: 0 20px;
 }
 
@@ -140,7 +93,7 @@ body {
 }
 
 .video-player {
-    background-color: #000;
+    background-color: #2a2a2a;
     border-radius: 10px;
     overflow: hidden;
     margin-bottom: 20px;
@@ -168,8 +121,8 @@ body {
 
 .aula-descricao p {
     font-size: 1em;
-    color: var(--muted);
     line-height: 1.6;
+    color: black;
 }
 
 /* Sidebar */
@@ -219,7 +172,7 @@ body {
 }
 
 .aulas-list li:hover {
-    background-color: #333;
+    background-color: #fff;
 }
 
 /* Esconde o checkbox original */

@@ -2,7 +2,6 @@
 session_start();
 include 'conexao.php';
 
-// Redireciona para o login se o usuário não estiver autenticado
 if (!isset($_SESSION['id_usuario'])) {
     header("Location: login.php");
     exit();
@@ -10,8 +9,6 @@ if (!isset($_SESSION['id_usuario'])) {
 
 $id_usuario = $_SESSION['id_usuario'];
 
-// Consulta para encontrar cursos onde o usuário completou todas as aulas
-// Esta é uma lógica comum para habilitar certificados
 try {
     $stmt = $conn->prepare("
         SELECT 
@@ -28,7 +25,6 @@ try {
     $stmt->bind_param("i", $id_usuario);
     $stmt->execute();
     $result_certificados = $stmt->get_result();
-
 } catch (Exception $e) {
     die("Erro ao buscar certificados: " . $e->getMessage());
 }
@@ -36,12 +32,15 @@ try {
 
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Meus Certificados - BROW CURSOS</title>
     <link rel="stylesheet" href="css/certificados.css">
-    <link rel="stylesheet" href="css/main.css"> </head>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+
 <body>
 
     <header id="navbar">
@@ -95,8 +94,9 @@ try {
     <footer>
         &copy; <?php echo date("Y"); ?> BROW CURSOS. Todos os direitos reservados.
     </footer>
-    
+
     <script src="js/main.js"></script>
-    
+
 </body>
+
 </html>

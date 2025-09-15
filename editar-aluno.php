@@ -2,7 +2,7 @@
 include("conexao.php");
 
 if (isset($_GET['id'])) {
-    $id = intval($_GET['id']); 
+    $id = intval($_GET['id']);
     $sql = "SELECT nome, email, telefone, cpf FROM usuarios WHERE id = $id";
     $result = $conn->query($sql);
 
@@ -18,6 +18,7 @@ if (isset($_GET['id'])) {
 
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -26,26 +27,27 @@ if (isset($_GET['id'])) {
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
+
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark pt-4 pb-4 mb-4">
         <div class="container">
-        <a class="navbar-brand" href="#">Brow Designer</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="menu">
-            <ul class="navbar-nav ms-auto">
-            <li class="nav-item"><a class="nav-link" href="#">Botão 1</a></li>
-            <li class="nav-item"><a class="nav-link" href="#">Botão 2</a></li>
-            <li class="nav-item"><a class="nav-link" href="#">Botão 3</a></li>
-            </ul>
-        </div>
+            <a class="navbar-brand" href="#">Brow Designer</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="menu">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#">Botão 1</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Botão 2</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Botão 3</a></li>
+                </ul>
+            </div>
         </div>
     </nav>
 
     <div class="container-site">
         <h1 class="page-title">Dados do Aluno</h1>
-        
+
         <!-- Card com dados reais do aluno -->
         <div class="aluno-details-card">
             <h3 class="section-heading">Informações Pessoais</h3>
@@ -60,7 +62,7 @@ if (isset($_GET['id'])) {
 
         <h1 class="page-title">Cursos do Aluno</h1>
 
-        <!-- Cursos (aqui ainda está fixo, mas dá pra puxar do BD depois) -->
+        <!-- Cursos (ainda tá fixo, mas dá pra puxar do banco depois) -->
         <div class="courses-list-card">
             <div class="course-item">
                 <div class="course-info">
@@ -87,4 +89,5 @@ if (isset($_GET['id'])) {
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>

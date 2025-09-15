@@ -1,7 +1,5 @@
-/* Importação da fonte do Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
 
-/* Estilos para o card de detalhes do aluno */
 .aluno-detalhe-card {
     background-color: #fff;
     border-radius: 8px;
@@ -17,7 +15,8 @@
     margin-bottom: 1.5rem;
 }
 
-.aluno-info h3, .cursos-info h2 {
+.aluno-info h3,
+.cursos-info h2 {
     color: #555;
     margin-bottom: 0.5rem;
 }

@@ -2,13 +2,11 @@
 session_start();
 include 'conexao.php';
 
-// Redireciona se o usuário não estiver logado
 if (!isset($_SESSION['id_usuario'])) {
     header("Location: login.php");
     exit();
 }
 
-// Verifica se o ID da aula e do curso foram passados na URL
 if (!isset($_GET['aula_id']) || !isset($_GET['curso_id'])) {
     header("Location: cursos.php");
     exit();
@@ -18,7 +16,6 @@ $aula_id = $_GET['aula_id'];
 $curso_id = $_GET['curso_id'];
 $id_usuario = $_SESSION['id_usuario'];
 
-// Busca as informações da aula atual
 $stmt_aula = $conn->prepare("SELECT titulo, descricao, video_url FROM aulas WHERE id = ?");
 $stmt_aula->bind_param("i", $aula_id);
 $stmt_aula->execute();
@@ -30,13 +27,11 @@ if (!$aula) {
     exit();
 }
 
-// Busca todas as aulas do curso para o menu lateral
 $stmt_aulas = $conn->prepare("SELECT id, titulo FROM aulas WHERE curso_id = ? ORDER BY id ASC");
 $stmt_aulas->bind_param("i", $curso_id);
 $stmt_aulas->execute();
 $result_aulas = $stmt_aulas->get_result();
 
-// Busca as aulas que o usuário já concluiu
 $aulas_concluidas = [];
 $stmt_concluidas = $conn->prepare("SELECT id_aula FROM aulas_concluidas WHERE id_usuario = ?");
 $stmt_concluidas->bind_param("i", $id_usuario);
@@ -47,8 +42,8 @@ while ($row = $result_concluidas->fetch_assoc()) {
 }
 $stmt_concluidas->close();
 
-// Função para extrair o ID do vídeo do YouTube
-function get_youtube_id($url) {
+function get_youtube_id($url)
+{
     $url_parts = parse_url($url);
     if (isset($url_parts['host'])) {
         $host = strtolower($url_parts['host']);
@@ -71,6 +66,7 @@ function get_youtube_id($url) {
 
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -79,6 +75,7 @@ function get_youtube_id($url) {
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
 </head>
+
 <body>
 
     <header>
@@ -110,7 +107,7 @@ function get_youtube_id($url) {
     <main class="aula-main">
         <section class="video-content">
             <h1><?php echo htmlspecialchars($aula['titulo']); ?></h1>
-            
+
             <div class="video-player">
                 <?php $youtube_id = get_youtube_id($aula['video_url']); ?>
                 <?php if ($youtube_id): ?>
@@ -137,9 +134,9 @@ function get_youtube_id($url) {
                     <li class="<?php echo ($aula_sidebar['id'] == $aula_id) ? 'active' : ''; ?>">
                         <label class="custom-checkbox-container">
                             <input type="checkbox"
-                                   class="aula-checkbox"
-                                   data-aula-id="<?php echo htmlspecialchars($aula_sidebar['id']); ?>"
-                                   <?php echo $aula_concluida ? 'checked' : ''; ?>>
+                                class="aula-checkbox"
+                                data-aula-id="<?php echo htmlspecialchars($aula_sidebar['id']); ?>"
+                                <?php echo $aula_concluida ? 'checked' : ''; ?>>
                             <span class="checkmark"></span>
                             <a href="aula.php?aula_id=<?php echo htmlspecialchars($aula_sidebar['id']); ?>&curso_id=<?php echo htmlspecialchars($curso_id); ?>">
                                 <?php echo htmlspecialchars($aula_sidebar['titulo']); ?>
@@ -165,32 +162,32 @@ function get_youtube_id($url) {
                     const aulaId = event.target.dataset.aulaId;
                     const isChecked = event.target.checked;
 
-                    // Chama o arquivo PHP via AJAX
                     fetch('marcar_aula_concluida.php', {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/x-www-form-urlencoded',
-                        },
-                        body: `id_aula=${aulaId}&concluido=${isChecked}`
-                    })
-                    .then(response => response.json())
-                    .then(data => {
-                        if (data.success) {
-                            console.log('Status da aula atualizado com sucesso!');
-                        } else {
-                            console.error('Erro ao atualizar status da aula:', data.message);
-                            event.target.checked = !isChecked; // Reverte a mudança do checkbox
-                        }
-                    })
-                    .catch(error => {
-                        console.error('Erro na requisição:', error);
-                        event.target.checked = !isChecked; // Reverte a mudança do checkbox
-                    });
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/x-www-form-urlencoded',
+                            },
+                            body: `id_aula=${aulaId}&concluido=${isChecked}`
+                        })
+                        .then(response => response.json())
+                        .then(data => {
+                            if (data.success) {
+                                console.log('Status da aula atualizado com sucesso!');
+                            } else {
+                                console.error('Erro ao atualizar status da aula:', data.message);
+                                event.target.checked = !isChecked;
+                            }
+                        })
+                        .catch(error => {
+                            console.error('Erro na requisição:', error);
+                            event.target.checked = !isChecked;
+                        });
                 });
             });
         });
     </script>
 </body>
+
 </html>
 
 <?php

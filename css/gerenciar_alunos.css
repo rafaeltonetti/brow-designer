@@ -1,7 +1,5 @@
-/* Importação da fonte do Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
 
-/* Estilos gerais do corpo, se não estiverem em um arquivo global */
 body {
     font-family: 'Montserrat', sans-serif;
     background-color: #1e1e1e;
@@ -19,7 +17,6 @@ body {
     color: white !important;
 }
 
-/* Container principal da página de administração */
 .admin-container {
     max-width: 1000px;
     margin: 2rem auto;
@@ -32,12 +29,11 @@ h1 {
     margin-bottom: 2rem;
 }
 
-/* Estilo para a tabela */
 .table-container {
     background-color: #fff;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    overflow: hidden; /* Garante que as bordas arredondadas funcionem */
+    overflow: hidden;
 }
 
 table {
@@ -47,7 +43,8 @@ table {
     color: #fff;
 }
 
-th, td {
+th,
+td {
     padding: 1rem;
     text-align: left;
     border-bottom: 1px solid #555;
@@ -57,12 +54,10 @@ thead {
     background-color: #222;
 }
 
-/* Estilo para linhas pares/ímpares, se desejar */
 tbody tr:nth-child(even) {
     background-color: #444;
 }
 
-/* Estilo para as células de ação */
 .actions a {
     text-decoration: none;
     padding: 0.5rem 1rem;
@@ -116,7 +111,7 @@ tbody tr:nth-child(even) {
     top: 50px;
     background-color: #fff;
     min-width: 150px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
     z-index: 1;
     border-radius: 5px;
 }
@@ -138,6 +133,7 @@ tbody tr:nth-child(even) {
     margin: 5px 0;
 }
 
-.user-menu:hover .dropdown, .user-menu.active .dropdown {
+.user-menu:hover .dropdown,
+.user-menu.active .dropdown {
     display: block;
 }
